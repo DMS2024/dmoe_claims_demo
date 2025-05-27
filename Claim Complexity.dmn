@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:included0="https://kie.org/dmn/_D7F2111B-49E1-4903-98ED-FC3B177109C7" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_D770081E-BFA5-4016-BF81-0A78688A3D61" id="_F2417ABE-F047-49AA-8B66-6268B531A3B3" name="Claim Complexity">
+  <import id="_D8FD21B9-0D4A-4AD8-A1ED-F39F42EB4286" name="Data" importType="http://www.omg.org/spec/DMN/20180521/MODEL/" namespace="https://kie.org/dmn/_D7F2111B-49E1-4903-98ED-FC3B177109C7" locationURI="./Data Structure.dmn" />
+  <inputData name="Diagnosis Code List" id="_1AFA583A-A131-4E82-93E4-8792AC9E043B">
+    <variable name="Diagnosis Code List" id="_0E30AD24-E128-4B40-A61E-E1B2EA37910F" typeRef="Data.diagnosisCodeList" />
+  </inputData>
+  <decision name="Diagnosis Code Count" id="_EBAA692B-99B4-49E8-9DB5-B1AD6DB1AD27">
+    <variable name="Diagnosis Code Count" id="_CF9C2CF5-3E4E-4D75-AAE6-674374765C62" typeRef="number" />
+    <informationRequirement id="_2E12F4B9-D4BC-48BC-B1A5-E91C57456368">
+      <requiredInput href="#_1AFA583A-A131-4E82-93E4-8792AC9E043B" />
+    </informationRequirement>
+    <literalExpression id="_511709D3-7E5A-4BE0-9E4E-47859AE2FD0C" typeRef="number" label="Diagnosis Code Count">
+      <text>count(Diagnosis Code List.code)</text>
+    </literalExpression>
+  </decision>
+  <decision name="Comorbidity Complexity" id="_9C07C5C3-E207-4C1A-B681-59C595949DDA">
+    <variable name="Comorbidity Complexity" id="_8114CEAB-E808-4EC3-8A71-2330C327D307" typeRef="string" />
+    <informationRequirement id="_6003E38D-1F1E-4557-A122-587B0F6FCB2C">
+      <requiredDecision href="#_EBAA692B-99B4-49E8-9DB5-B1AD6DB1AD27" />
+    </informationRequirement>
+    <informationRequirement id="_B394D398-7281-43D3-9A09-4A58F5761B77">
+      <requiredInput href="#_1AFA583A-A131-4E82-93E4-8792AC9E043B" />
+    </informationRequirement>
+    <decisionTable id="_C0F5D72F-EBC5-4A43-AC21-E1EADFC7A809" typeRef="string" hitPolicy="UNIQUE" label="Comorbidity Complexity">
+      <input id="_CDD4DD58-23F6-45AF-BFB8-F8E7965FCF20">
+        <inputExpression id="_602F4F41-B13C-427A-BC40-4A555DC1C28C" typeRef="number">
+          <text>Diagnosis Code Count</text>
+        </inputExpression>
+      </input>
+      <input id="_821480A0-A5FC-4F20-8DFB-7189FC357CC4">
+        <inputExpression id="_D8869DD3-A9DF-4F19-86F8-8CC3BE3BE080" typeRef="string">
+          <text>Diagnosis Code List.code</text>
+        </inputExpression>
+      </input>
+      <input id="_4F5AA57E-68E0-4F97-87A7-2A9DDD365C84">
+        <inputExpression id="_09146324-B098-43D8-A36F-01DF370A99FC" typeRef="string">
+          <text>Diagnosis Code List.code2</text>
+        </inputExpression>
+      </input>
+      <output id="_A2511264-6FBB-4540-B183-B32E168E3876" name="Output-1" />
+      <annotation name="Annotations" />
+      <rule id="_59A5C0A7-A363-4F00-946D-C76E0CCDAB43">
+        <inputEntry id="_A9DE24B9-71AE-4F28-99B5-56C52EA2D9F6">
+          <text>&lt;1</text>
+        </inputEntry>
+        <inputEntry id="_5946C619-685B-4C8E-B687-9E6F1C6D8646">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_C5FB9FEE-4405-4382-871C-5A2734DAF699">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_E089AB3C-AA59-4278-8029-547D4E375D0B">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_6B29D20B-B63E-4D31-8CE5-20FB63ACDB7F">
+        <inputEntry id="_D0463B5B-18CA-4BF8-BFC8-B8FC515C629A">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_F45993AA-4AA3-44FB-BA88-884DFFB8F281">
+          <text>[&quot;211.3&quot;,&quot;455.6&quot;,&quot;535.5&quot;,&quot;455&quot;]</text>
+        </inputEntry>
+        <inputEntry id="_602529EE-47B8-45B2-B781-531801F6B535">
+          <text>[&quot;211.3&quot;,&quot;455.6&quot;,&quot;535.5&quot;,&quot;455&quot;]</text>
+        </inputEntry>
+        <outputEntry id="_C5561946-4FFF-4D3E-A275-7ABAD6DF7417">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_6712ECFB-4898-470D-B6F4-A6B975E551BD">
+        <inputEntry id="_08E31AE4-4777-4498-912B-C653236132DC">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_EA47F4C8-982D-4A14-95DE-63DF8A16FE15">
+          <text>[&quot;7.1&quot;,&quot;7.9&quot;,&quot;8.61&quot;]</text>
+        </inputEntry>
+        <inputEntry id="_B889B652-C24E-4E8D-B68E-0C7708EE3BE0">
+          <text>[&quot;7.1&quot;,&quot;7.9&quot;,&quot;8.61&quot;]</text>
+        </inputEntry>
+        <outputEntry id="_C87760BB-3395-465E-B4CA-2C911B72D1BE">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_4E6EB8A1-01B5-45DE-9672-3BCFE00101E3">
+        <inputEntry id="_EFB6C78D-CDF9-4E55-959A-33648D69B8CE">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_B476DACC-3523-498A-B88A-D6C595398A38">
+          <text>[&quot;3&quot;,&quot;4.9&quot;,&quot;5&quot;]</text>
+        </inputEntry>
+        <inputEntry id="_86866FA5-00DC-4AE8-8A23-B81C694A017A">
+          <text>[&quot;3&quot;,&quot;4.9&quot;,&quot;5&quot;]</text>
+        </inputEntry>
+        <outputEntry id="_EFE64189-8E51-42E8-A4B4-7345FDBFBEB6">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_97850911-23A3-4F0A-9FAA-52932234191C">
+        <inputEntry id="_9CCCDEF2-937D-46BE-A266-AD5ED5DD03DE">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="_C52B448D-82E7-4417-8664-8AAF08D63B25">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_D5D6272E-02DE-496C-8428-3319B9482870">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_87E38443-4183-46AC-BEE8-A2C64C54889D">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision name="Catastrophic Diagnosis Code Count" id="_EF35E53B-F42B-45DB-BD71-3379E09C4D1D">
+    <variable name="Catastrophic Diagnosis Code Count" id="_781A4DB7-662F-4D58-A529-FB3447C19189" typeRef="number" />
+    <informationRequirement id="_218E740C-68A2-49F9-AD2B-F83F2DF87201">
+      <requiredDecision href="#_9C07C5C3-E207-4C1A-B681-59C595949DDA" />
+    </informationRequirement>
+    <literalExpression id="_B245C2D3-B4E7-4CB6-BF36-81BF22BD6815" typeRef="number" label="Catastrophic Diagnosis Code Count">
+      <text>if Comorbidity Complexity = &quot;High&quot; then 
+count(Comorbidity Complexity) else 0
+</text>
+    </literalExpression>
+  </decision>
+  <decision name="Diagnosis Complexity" id="_9587DC48-E23E-4401-A3CB-BA3E42520DCD">
+    <variable name="Diagnosis Complexity" id="_8FFE3A2A-259D-4806-A42F-809F81E64304" typeRef="Any" />
+    <informationRequirement id="_312B5E04-1D6B-42CA-AD76-8F8614C834F8">
+      <requiredDecision href="#_EBAA692B-99B4-49E8-9DB5-B1AD6DB1AD27" />
+    </informationRequirement>
+    <informationRequirement id="_3055CAB0-19F6-4784-8E86-3725E167403C">
+      <requiredDecision href="#_9C07C5C3-E207-4C1A-B681-59C595949DDA" />
+    </informationRequirement>
+    <informationRequirement id="_B5ED71E9-D6E8-4577-85E7-5A6EFE89FAFB">
+      <requiredDecision href="#_EF35E53B-F42B-45DB-BD71-3379E09C4D1D" />
+    </informationRequirement>
+    <decisionTable id="_968EC3BB-424C-4E72-B2BA-D737EE43D9E9" typeRef="Any" hitPolicy="FIRST" label="Diagnosis Complexity">
+      <input id="_FFDCC14D-852A-4D65-9D00-2A9461ED2B2E">
+        <inputExpression id="_1539B32F-F8ED-454E-A538-4DBAE4B70502" typeRef="number">
+          <text>Diagnosis Code Count</text>
+        </inputExpression>
+      </input>
+      <input id="_87D2F5CD-E463-4AEA-A7B7-87B6F05848A1">
+        <inputExpression id="_32E65944-3B6E-4B93-90C2-AAAD15D5BE95" typeRef="string">
+          <text>Comorbidity Complexity</text>
+        </inputExpression>
+      </input>
+      <input id="_E0E2965E-65EB-4B58-A16B-B6CA57FBC101">
+        <inputExpression id="_F282072E-BF85-4B4F-B490-CC0E8319D927" typeRef="number">
+          <text>Catastrophic Diagnosis Code Count</text>
+        </inputExpression>
+      </input>
+      <output id="_3D0EA43A-9BD3-4430-AE73-6AC3F42C6EC6" name="Diagnosis Complexity" typeRef="string" />
+      <output id="_EB7850B6-9D09-46B3-B64B-845D8719C243" name="Messages" typeRef="string" />
+      <annotation name="Annotations" />
+      <rule id="_67C42DC9-C086-4194-9A0B-033D0250DADF">
+        <inputEntry id="_E98A9A62-5CA0-4246-BEB5-565AD18F0FA2">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_C84EC571-B5AF-4337-ADE7-EAB17A1806D0">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_517CF287-0C5D-49E0-848F-1351018B2F71">
+          <text>&gt;0</text>
+        </inputEntry>
+        <outputEntry id="_7A215D2C-BC40-4C8C-A5B8-22025FB531FA">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <outputEntry id="_AFFE32BD-2B75-4D01-A460-C0D66CD13255">
+          <text>&quot;High Diagnosis Complexity&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_A4B6AC72-8318-4098-B925-B6DBF11FE413">
+        <inputEntry id="_CE824089-3245-4C2A-9EFA-FE027C9E596D">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_25894CFA-FECC-499F-B172-4A905F33F972">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_560A812F-B9E2-4122-8EB9-968C55A31E6E">
+          <text>0</text>
+        </inputEntry>
+        <outputEntry id="_A8C3E937-22E2-4458-85E5-1CBD575ADB77">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <outputEntry id="_2ADC5C78-4A30-4328-B8B3-7630BDA32E11">
+          <text>&quot;Low Diagnosis Complexity&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_98D68701-C49A-43D9-972D-DFB642EEC869">
+        <inputEntry id="_F74D5819-9500-4339-ABFE-855C868B92BC">
+          <text>&lt;2</text>
+        </inputEntry>
+        <inputEntry id="_CB4CDCE2-89A2-4257-9AB5-6F05B1165760">
+          <text>&quot;High&quot;</text>
+        </inputEntry>
+        <inputEntry id="_64C692CC-5BCF-465A-B85B-E36FF7A7028D">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_F919393F-E817-4EA8-AEBF-DD082E409E74">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <outputEntry id="_DD290E6E-C5E5-4914-B819-732C16E59B2F">
+          <text>&quot;High Diagnosis Complexity&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_C27DE897-4801-424B-BD5E-AF39FB2C2050">
+        <inputEntry id="_90DCF2DD-77EB-46DD-B804-C1CA0FC92B11">
+          <text>&lt;2</text>
+        </inputEntry>
+        <inputEntry id="_F018ABDF-B6E8-4483-A7D4-0DFB01FA83E2">
+          <text>&quot;Low&quot;</text>
+        </inputEntry>
+        <inputEntry id="_DBE17448-08E8-4384-A20E-06740B9FA815">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_DFCEE00F-245D-4483-B43B-A775220682E3">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <outputEntry id="_8294D7EA-AFE1-4D7E-A0BE-7171B5ED4399">
+          <text>&quot;Low Diagnosis Complexity&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_7F48AB07-1931-4A26-90A7-51C1D226B4AA">
+        <inputEntry id="_BB69FB8A-B550-4263-97DE-0FD5B750C398">
+          <text>&lt;2</text>
+        </inputEntry>
+        <inputEntry id="_060B03EF-64B2-4A1A-A957-CEC3018316C9">
+          <text>&quot;Moderate&quot;</text>
+        </inputEntry>
+        <inputEntry id="_0EE75C8D-9C63-4A7D-8DD0-33E7C61F814A">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_D28D3BBC-0616-4EE3-A15C-527A1B9F01D1">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <outputEntry id="_F8E53906-5C17-4E21-BA67-5B0FAF654CF6">
+          <text>&quot;Moderate Diagnosis Complexity&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData name="Claims" id="_86A22C71-16D6-4C70-909D-B57E58815746">
+    <variable name="Claims" id="_548A33A9-5F4B-4E10-87BC-13D25F4432E8" typeRef="Data.claims" />
+  </inputData>
+  <decision name="Past 12 Months Claim Count" id="_1A45666B-1F98-4F53-ABEF-809EA7C2FE2F">
+    <variable name="Past 12 Months Claim Count" id="_DE292B2A-CA4D-4BCD-9DC1-3A6C48EB862C" typeRef="number" />
+    <informationRequirement id="_6CF126B4-9546-4E10-AA1C-AD0076BCA72D">
+      <requiredInput href="#_86A22C71-16D6-4C70-909D-B57E58815746" />
+    </informationRequirement>
+    <literalExpression id="_C6DA83A9-AAED-4002-B859-94221005A66A" typeRef="number" label="Past 12 Months Claim Count">
+      <text>count(Claims.prevClaimsSubmitted)</text>
+    </literalExpression>
+  </decision>
+  <decision name="Claim History Complexity" id="_2848401F-76F7-4709-8065-4574AB5F6894">
+    <variable name="Claim History Complexity" id="_552CB47B-E5AA-4CC9-9A54-8D322A24817A" typeRef="Any" />
+    <informationRequirement id="_0FBA4FC4-7B13-4428-A696-404F3D059145">
+      <requiredDecision href="#_1A45666B-1F98-4F53-ABEF-809EA7C2FE2F" />
+    </informationRequirement>
+    <decisionTable id="_BEEF682C-EB0B-4376-AE47-5CAC185D0CB6" typeRef="Any" hitPolicy="UNIQUE" label="Claim History Complexity">
+      <input id="_761CC68A-9983-4BB6-B74A-2C010BAC7E63">
+        <inputExpression id="_92D0A62E-6F46-4B79-B65D-F92C3D0C1AF5" typeRef="number">
+          <text>Past 12 Months Claim Count</text>
+        </inputExpression>
+      </input>
+      <output id="_F9A4E414-7D9E-4C48-B915-8804AD8D4841" name="Claim History Complexity" typeRef="string" />
+      <output id="_DDAD92C9-67A0-47A9-9BE0-8354271C39E1" name="Messages" typeRef="string" />
+      <annotation name="Annotations" />
+      <rule id="_C0654F43-3B0A-4257-BA92-5BDDCB9720D4">
+        <inputEntry id="_AD4DA8C9-AEAC-49AF-B5AC-F1D4C805EF17">
+          <text>0</text>
+        </inputEntry>
+        <outputEntry id="_926D3E05-D7C8-4A31-B281-C11EF1BC8041">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <outputEntry id="_93F2D043-9B9B-4380-A2C1-68020539655C">
+          <text>&quot;Low History Complexity&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_A3F84B82-6CE3-4CB0-B13A-1AEC0900F266">
+        <inputEntry id="_E38749E4-07DC-4C2E-812B-7861EC0BC5E8">
+          <text>[1..2]</text>
+        </inputEntry>
+        <outputEntry id="_056D138E-6DD7-4571-82CE-69A50CFED844">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <outputEntry id="_F42F0DE5-D7C5-4F23-A555-DF8DE692F0AD">
+          <text>&quot;Moderate History Complexity&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_97348A3A-B203-427C-9285-A04C6A61F19B">
+        <inputEntry id="_A13E2677-2028-4EF0-B93B-181B459D9F74">
+          <text>[3..4]</text>
+        </inputEntry>
+        <outputEntry id="_10C89CF8-24E4-428B-BA18-1F0E8072C83F">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <outputEntry id="_03B747C9-8310-480F-8908-0448BDE8B331">
+          <text>&quot;High History Complexity&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_6654FB24-65EA-412A-A4C5-D73831BAC028">
+        <inputEntry id="_82E1E075-8DFC-4FA3-87CA-8DDC003B2C64">
+          <text>&gt;=5</text>
+        </inputEntry>
+        <outputEntry id="_9BA00C12-92E9-471A-B0A1-5B75633B06A9">
+          <text>&quot;Very High&quot;</text>
+        </outputEntry>
+        <outputEntry id="_E38D2664-71AD-4A93-BF66-4623281B068E">
+          <text>&quot;Very High&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData name="Treatment Code List" id="_7EE46086-90A9-4D46-B900-8A1CE8DDA24C">
+    <variable name="Treatment Code List" id="_8F805501-4842-45D5-89DA-5997C912D9A0" typeRef="Data.treatmentCodeList" />
+  </inputData>
+  <decision name="Treatment Code Count" id="_A65654F9-CF99-416C-8FF2-F3D0D22EF468">
+    <variable name="Treatment Code Count" id="_F7ED5EF4-3865-4887-A3A2-4D8A7578065B" typeRef="number" />
+    <informationRequirement id="_F196A44A-91C9-4C50-80CE-478B04F0FC0B">
+      <requiredInput href="#_7EE46086-90A9-4D46-B900-8A1CE8DDA24C" />
+    </informationRequirement>
+    <literalExpression id="_ECFF2DCE-33DD-4FF1-8BD7-36580CCFD3D0" typeRef="number" label="Treatment Code Count">
+      <text>count(Treatment Code List.code)</text>
+    </literalExpression>
+  </decision>
+  <decision name="Maximum Severity of Listed Treatment Codes" id="_A38ED3F5-3CC7-407A-8902-114AE0CE2FC1">
+    <variable name="Maximum Severity of Listed Treatment Codes" id="_5E1547D0-0681-4737-897D-9418039785DE" typeRef="number" />
+    <informationRequirement id="_05E5F233-6344-43D1-B302-F25FDD2C775E">
+      <requiredInput href="#_7EE46086-90A9-4D46-B900-8A1CE8DDA24C" />
+    </informationRequirement>
+    <literalExpression id="_732367B4-9200-4C3C-BBEC-E4E9B6FDD2A1" typeRef="number" label="Maximum Severity of Listed Treatment Codes">
+      <text>max(Treatment Code List.severity)</text>
+    </literalExpression>
+  </decision>
+  <decision name="Treatment Complexity" id="_490A1FF5-BAC1-4C63-8777-2BD49633F274">
+    <variable name="Treatment Complexity" id="_68920F4A-901D-42E9-B5BF-5F66D790B85C" typeRef="Any" />
+    <informationRequirement id="_0C78E7D4-A39B-4A56-B562-C4EDD9002F4D">
+      <requiredDecision href="#_A65654F9-CF99-416C-8FF2-F3D0D22EF468" />
+    </informationRequirement>
+    <informationRequirement id="_192609D0-A073-4770-A546-36A5447D5C4C">
+      <requiredDecision href="#_A38ED3F5-3CC7-407A-8902-114AE0CE2FC1" />
+    </informationRequirement>
+    <decisionTable id="_F76EC59C-AD5A-4133-855C-60C585E22AD5" typeRef="Any" hitPolicy="UNIQUE" label="Treatment Complexity">
+      <input id="_78DD2803-B586-49AE-ABB7-F069495D55C5">
+        <inputExpression id="_AEC175A9-609B-46EB-9EB8-942B44A5EC87" typeRef="number">
+          <text>Treatment Code Count</text>
+        </inputExpression>
+      </input>
+      <input id="_67112FD1-BC94-4FA2-B2E4-93B1B9339658">
+        <inputExpression id="_2B510D8B-7834-497D-918C-B6DCBD80D7BB" typeRef="number">
+          <text>Maximum Severity of Listed Treatment Codes</text>
+        </inputExpression>
+      </input>
+      <output id="_6F4B7005-AF4E-41C6-97BB-2D0321B904B1" name="Treatment Complexity" typeRef="string" />
+      <output id="_BD57A75D-80A8-4404-89CD-F8C39200548E" name="Messages" typeRef="string" />
+      <annotation name="Annotations" />
+      <rule id="_9D8A6A02-4F1A-49CE-96C2-F85F20D50760">
+        <inputEntry id="_A21B3893-1615-42CA-85E1-CE840677421D">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="_43927B43-9232-452F-AC56-39A71979EC23">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_27FAFF2F-7E1D-4580-9435-C10C50FBF49A">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <outputEntry id="_A67A72BF-2C33-4E02-BAE1-71EB8CDAA40F">
+          <text>&quot;Low Treatment Complexity: No surgical codes.&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_31A30239-8239-471C-92EB-62966767180C">
+        <inputEntry id="_384D9880-44AD-486A-8DEC-328FAA971060">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_5DBCE359-AF73-4D33-9784-D53DA9F7BAC0">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <outputEntry id="_61D1666D-B11D-4207-8151-CD43D883E1AE">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <outputEntry id="_A303A989-300B-4E9E-8689-D996F7AD05B9">
+          <text>&quot;Low Treatment Complexity: 1 surgical code with severity level&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_991DD183-8A6C-494B-9A2E-1E86305D109F">
+        <inputEntry id="_FE62B091-70F4-453E-A9EE-0FD3B29A3BBE">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="_FB134382-32B6-450B-965D-B86BC4CDD055">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <outputEntry id="_C54CEE0B-CCC7-4CAC-82FA-E5D3794B4E76">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <outputEntry id="_DC95689E-46DD-4A2F-88DC-AA151561A234">
+          <text>&quot;Low Treatment Complexity: Multiple surgical codes with max severity level&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_0852C1E8-432B-4B85-8F77-DE60C15136CB">
+        <inputEntry id="_F0429042-5529-42FE-B942-195CC8682BC9">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_3EE44784-EA70-4587-B79D-DEE4F5BD33E7">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="_3DA75BEF-29BD-461E-BC9F-C5DA0C789C2E">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <outputEntry id="_4CA13FA1-713B-4481-AE51-4E121632A592">
+          <text>&quot;Low Treatment Complexity: 1 surgical code with severity level&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_5C14B4AD-8F7A-4E03-A9BB-C1047C02FA0C">
+        <inputEntry id="_0378468B-516D-4542-AA2D-29354188A289">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="_6739E8DA-68A7-4C43-BDA3-D0B7BAE52CCF">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="_DC76B450-8A09-4A8B-B3C2-335B0E9690BB">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <outputEntry id="_D45F4448-DF13-49FE-921E-BEFF6E3F66A6">
+          <text>&quot;Low Treatment Complexity: Multiple surgical codes with max severity level&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_6287EA1C-7B5E-4E6C-8C3D-1C90123DF5FD">
+        <inputEntry id="_086F98CC-4D5D-4FF6-B4FF-B4576EEDF0AE">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_2725466A-A59E-4E82-81BD-7CCA5492F143">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="_C16A998A-0745-4104-8C24-A1C15C021EA9">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <outputEntry id="_C0E78907-A6E9-42D8-931C-947C985EFEFF">
+          <text>&quot;Moderate Treatment Complexity: 1 surgical code with severity level&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_FF2F5D11-C830-4144-9509-A603C002DB48">
+        <inputEntry id="_6F1603E6-7936-4259-98FA-D11B4F70D910">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="_82EBFAAA-A3AE-4970-997C-C535887F31BB">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="_CE865607-4B9E-44A0-9FE9-021BFC85AEAF">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <outputEntry id="_C1378EE3-EFC2-417A-B3F3-98B9974B9D15">
+          <text>&quot;Moderate Treatment Complexity: Multiple surgical codes with max severity level&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_0D7F8F62-3AA2-40DA-BB94-FAEEA97C46D6">
+        <inputEntry id="_BA509B28-7F5A-4970-8CAD-0332A4BDBD71">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="_00EF1ACE-6528-421E-AA00-EC68E7540CFA">
+          <text>&gt;=5</text>
+        </inputEntry>
+        <outputEntry id="_6E3CE66D-879C-41FB-97A2-67DA4A3DFE66">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <outputEntry id="_DBF29B0D-C274-48AE-9360-0D3CBB415C2D">
+          <text>&quot;High Treatment Complexity: 1 surgical code with severity level&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_6DD59963-6743-45C1-AC27-DC110B9EB9E2">
+        <inputEntry id="_56137792-075D-4CD6-B65E-F6272053FAAB">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="_825C8BA2-50AE-493C-8E70-53A3BCBACB6E">
+          <text>&gt;=5</text>
+        </inputEntry>
+        <outputEntry id="_5C98F317-CDF6-49D8-8B90-D6C66A951F43">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <outputEntry id="_EF932847-F976-487F-89E8-59C05F6C59F5">
+          <text>&quot;High Treatment Complexity: Multiple surgical codes with max severity level&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision name="Claim Complexity" id="_FC138D26-84C7-46FF-B801-827C573F208F">
+    <variable name="Claim Complexity" id="_82E6FAD3-418D-4AF1-981F-6509AE51A278" typeRef="string" />
+    <informationRequirement id="_C6524FC9-335A-4D64-9419-82AAA8AF49D4">
+      <requiredDecision href="#_490A1FF5-BAC1-4C63-8777-2BD49633F274" />
+    </informationRequirement>
+    <informationRequirement id="_1DA38FAB-1ED1-4437-B6BD-B6FF215CA82C">
+      <requiredDecision href="#_2848401F-76F7-4709-8065-4574AB5F6894" />
+    </informationRequirement>
+    <informationRequirement id="_9CE342A7-38E9-406B-B4EF-4A551FA9A2D4">
+      <requiredDecision href="#_9587DC48-E23E-4401-A3CB-BA3E42520DCD" />
+    </informationRequirement>
+    <decisionTable id="_964875DA-8099-4CEB-8044-4A39E51C0584" typeRef="string" hitPolicy="FIRST" label="Claim Complexity">
+      <input id="_C33EA4E5-DA65-4929-B7D0-A36A643931F1">
+        <inputExpression id="_EFA956EB-20D2-4ACB-973F-6DC30BE52003" typeRef="string">
+          <text>Diagnosis Complexity.Diagnosis Complexity</text>
+        </inputExpression>
+      </input>
+      <input id="_B35AE5A2-0E87-4C42-BF96-5477139A1B8B">
+        <inputExpression id="_EDE3C710-4A8B-4638-9B4F-77CEA58596B0" typeRef="string">
+          <text>Claim History Complexity.Claim History Complexity</text>
+        </inputExpression>
+      </input>
+      <input id="_954E672A-F6FC-490B-880A-80873D9D87A5">
+        <inputExpression id="_582560E1-58B0-4357-A7A2-A9093552CEFF" typeRef="string">
+          <text>Treatment Complexity.Treatment Complexity</text>
+        </inputExpression>
+      </input>
+      <output id="_5F6A726A-AB84-47D5-9B43-44EACD3A6964" name="Output-1" />
+      <annotation name="Annotations" />
+      <rule id="_8D3EDB34-8C48-48A9-9529-99BBEC6EFBBE">
+        <inputEntry id="_6E0C54B8-ABE7-4F48-9E09-5DE92822EF68">
+          <text>&quot;Low&quot;</text>
+        </inputEntry>
+        <inputEntry id="_D60B5713-7D18-4EF9-9A94-7103788A4A2F">
+          <text>&quot;Low&quot;</text>
+        </inputEntry>
+        <inputEntry id="_8DB47A28-3353-4F06-BAD2-99D65EB6390B">
+          <text>&quot;Low&quot;</text>
+        </inputEntry>
+        <outputEntry id="_7B5C33F2-A8D2-439B-978F-D1EA09620DEC">
+          <text>&quot;Low&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_B75E94AB-C218-4198-BE46-E5E5F522A5CE">
+        <inputEntry id="_2824C798-E0DD-47E2-8D9D-1521149CC75C">
+          <text>&quot;High&quot;</text>
+        </inputEntry>
+        <inputEntry id="_0ECB9A09-0A43-4A77-B114-876AFD3AFBD5">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_7CE57032-83A2-45F3-8548-276AEBBDD7D8">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_EB06D45C-0463-4418-83FC-190320277011">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_1604DEE3-20D7-4748-A026-F40F58A53F60">
+        <inputEntry id="_8A9BDE3B-8D70-4131-A9A6-8081E161349F">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_90277536-AB3D-409F-9AF7-A59451DB90A3">
+          <text>&quot;High&quot;</text>
+        </inputEntry>
+        <inputEntry id="_EBB45500-BB06-4207-BC52-8F0C3D790F84">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_6AE927FE-21BC-45F5-8F64-9C5625B264E3">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_4878BF9C-4634-4EB0-8EC7-94588A6B165C">
+        <inputEntry id="_FBB9F18F-712D-4CCB-9E96-1CF2D2375C64">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_CE4CED77-4386-4FEC-94AF-C5F13FB41C1B">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_88792968-4D59-4EA2-84E9-2D4CB9EBB362">
+          <text>&quot;High&quot;</text>
+        </inputEntry>
+        <outputEntry id="_92865F87-609D-499C-9174-4167248CFE25">
+          <text>&quot;High&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_EE26F34E-7DCD-487B-B181-51626E67C2C9">
+        <inputEntry id="_BC4DBB7E-BDF8-4467-A05E-3576F856108D">
+          <text>&quot;Moderate&quot;</text>
+        </inputEntry>
+        <inputEntry id="_E89B6EB9-F99F-4FB7-9242-D3102EAFF946">
+          <text>!= &quot;High&quot;</text>
+        </inputEntry>
+        <inputEntry id="_6413A59D-429A-4394-B6F2-5CE745E8552A">
+          <text>!= &quot;High&quot;</text>
+        </inputEntry>
+        <outputEntry id="_5928C3AE-6F99-4A6B-AEE9-4AD2B8C3C925">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_12495729-9F2A-4F48-87FF-573CB135D57E">
+        <inputEntry id="_24B89869-C900-4829-B552-727827221CD4">
+          <text>!= &quot;High&quot;</text>
+        </inputEntry>
+        <inputEntry id="_B46DC5F5-8D26-40AF-9116-F60A481312AC">
+          <text>&quot;Moderate&quot;</text>
+        </inputEntry>
+        <inputEntry id="_0718AD9D-A188-4E49-B0FA-2268C6D5FAA4">
+          <text>!= &quot;High&quot;</text>
+        </inputEntry>
+        <outputEntry id="_E6666321-695E-423A-9E7D-E0ABDA9074AF">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_192EBE51-71DD-4919-AC9E-4B8163CD1990">
+        <inputEntry id="_14B861EE-8E81-47E9-9C05-7C8D93822753">
+          <text>!= &quot;High&quot;</text>
+        </inputEntry>
+        <inputEntry id="_872B5D77-96A0-4366-B6A8-A1725F639F94">
+          <text>!= &quot;High&quot;</text>
+        </inputEntry>
+        <inputEntry id="_F6AEF472-55C0-4F97-A6C8-181042D1C78D">
+          <text>&quot;Moderate&quot;</text>
+        </inputEntry>
+        <outputEntry id="_6668F30C-998C-4315-919B-57C2134619B5">
+          <text>&quot;Moderate&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decisionService name="Claim Complexity Service" id="_8599F40C-1C70-4840-85DE-A8E2B4F7D3FB">
+    <variable name="Claim Complexity Service" id="_1B8B1C52-C031-4112-944E-B41F61B01224" typeRef="string" />
+    <outputDecision href="#_FC138D26-84C7-46FF-B801-827C573F208F" />
+    <encapsulatedDecision href="#_490A1FF5-BAC1-4C63-8777-2BD49633F274" />
+    <encapsulatedDecision href="#_2848401F-76F7-4709-8065-4574AB5F6894" />
+    <encapsulatedDecision href="#_9587DC48-E23E-4401-A3CB-BA3E42520DCD" />
+    <encapsulatedDecision href="#_A38ED3F5-3CC7-407A-8902-114AE0CE2FC1" />
+    <encapsulatedDecision href="#_A65654F9-CF99-416C-8FF2-F3D0D22EF468" />
+    <encapsulatedDecision href="#_1A45666B-1F98-4F53-ABEF-809EA7C2FE2F" />
+    <encapsulatedDecision href="#_EF35E53B-F42B-45DB-BD71-3379E09C4D1D" />
+    <encapsulatedDecision href="#_9C07C5C3-E207-4C1A-B681-59C595949DDA" />
+    <encapsulatedDecision href="#_EBAA692B-99B4-49E8-9DB5-B1AD6DB1AD27" />
+    <inputData href="#_7EE46086-90A9-4D46-B900-8A1CE8DDA24C" />
+    <inputData href="#_86A22C71-16D6-4C70-909D-B57E58815746" />
+    <inputData href="#_1AFA583A-A131-4E82-93E4-8792AC9E043B" />
+  </decisionService>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_8B26B79E-A6B5-4BE7-9713-078349A91669" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_511709D3-7E5A-4BE0-9E4E-47859AE2FD0C">
+            <kie:width>363</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C0F5D72F-EBC5-4A43-AC21-E1EADFC7A809">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>218</kie:width>
+            <kie:width>235</kie:width>
+            <kie:width>255</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B245C2D3-B4E7-4CB6-BF36-81BF22BD6815">
+            <kie:width>594</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_968EC3BB-424C-4E72-B2BA-D737EE43D9E9">
+            <kie:width>60</kie:width>
+            <kie:width>142</kie:width>
+            <kie:width>154</kie:width>
+            <kie:width>222</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C6DA83A9-AAED-4002-B859-94221005A66A">
+            <kie:width>480</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BEEF682C-EB0B-4376-AE47-5CAC185D0CB6">
+            <kie:width>60</kie:width>
+            <kie:width>179</kie:width>
+            <kie:width>244</kie:width>
+            <kie:width>207</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_ECFF2DCE-33DD-4FF1-8BD7-36580CCFD3D0">
+            <kie:width>461</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_732367B4-9200-4C3C-BBEC-E4E9B6FDD2A1">
+            <kie:width>558</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F76EC59C-AD5A-4133-855C-60C585E22AD5">
+            <kie:width>60</kie:width>
+            <kie:width>142</kie:width>
+            <kie:width>277</kie:width>
+            <kie:width>234</kie:width>
+            <kie:width>199</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_964875DA-8099-4CEB-8044-4A39E51C0584">
+            <kie:width>60</kie:width>
+            <kie:width>142</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>142</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_F059FF08-3E66-4AE0-AE94-955ED174373D" dmnElementRef="_1AFA583A-A131-4E82-93E4-8792AC9E043B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="840" y="380" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_D49B2229-1CB2-4EDD-A7FE-975290B695B9" dmnElementRef="_EBAA692B-99B4-49E8-9DB5-B1AD6DB1AD27" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1060" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_DCBA5BA3-8B88-4B24-AE4A-37A035B55DAA" dmnElementRef="_2E12F4B9-D4BC-48BC-B1A5-E91C57456368" sourceElement="_F059FF08-3E66-4AE0-AE94-955ED174373D" targetElement="_D49B2229-1CB2-4EDD-A7FE-975290B695B9">
+        <di:waypoint x="920" y="420" />
+        <di:waypoint x="1140" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_3254B909-E7AB-4C59-86A1-4932A018D9C2" dmnElementRef="_9C07C5C3-E207-4C1A-B681-59C595949DDA" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="820" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_215E213F-BFAB-4548-AB1A-AED4A5F38E5E" dmnElementRef="_6003E38D-1F1E-4557-A122-587B0F6FCB2C" sourceElement="_D49B2229-1CB2-4EDD-A7FE-975290B695B9" targetElement="_3254B909-E7AB-4C59-86A1-4932A018D9C2">
+        <di:waypoint x="1140" y="260" />
+        <di:waypoint x="900" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_FB8337F0-DE5B-4790-88CB-FC6756F96944" dmnElementRef="_B394D398-7281-43D3-9A09-4A58F5761B77" sourceElement="_F059FF08-3E66-4AE0-AE94-955ED174373D" targetElement="_3254B909-E7AB-4C59-86A1-4932A018D9C2">
+        <di:waypoint x="920" y="420" />
+        <di:waypoint x="900" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_DFD19418-CB47-428A-B67F-B1588366B810" dmnElementRef="_EF35E53B-F42B-45DB-BD71-3379E09C4D1D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="600" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_4954D932-B9B9-4233-8529-2A53136AD782" dmnElementRef="_218E740C-68A2-49F9-AD2B-F83F2DF87201" sourceElement="_3254B909-E7AB-4C59-86A1-4932A018D9C2" targetElement="_DFD19418-CB47-428A-B67F-B1588366B810">
+        <di:waypoint x="900" y="260" />
+        <di:waypoint x="680" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_28B16064-0F2A-48D0-8F64-AF1B9A0E2CFE" dmnElementRef="_9587DC48-E23E-4401-A3CB-BA3E42520DCD" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="640" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_1F8302D2-46AB-4196-AAE7-BD67FD5DCD2B" dmnElementRef="_312B5E04-1D6B-42CA-AD76-8F8614C834F8" sourceElement="_D49B2229-1CB2-4EDD-A7FE-975290B695B9" targetElement="_28B16064-0F2A-48D0-8F64-AF1B9A0E2CFE">
+        <di:waypoint x="1140" y="260" />
+        <di:waypoint x="720" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_B6C41EB9-AA88-43DA-928D-612362726E5F" dmnElementRef="_3055CAB0-19F6-4784-8E86-3725E167403C" sourceElement="_3254B909-E7AB-4C59-86A1-4932A018D9C2" targetElement="_28B16064-0F2A-48D0-8F64-AF1B9A0E2CFE">
+        <di:waypoint x="900" y="260" />
+        <di:waypoint x="720" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_3B1426D8-2025-4FE1-BEA9-8283E8B55AA1" dmnElementRef="_B5ED71E9-D6E8-4577-85E7-5A6EFE89FAFB" sourceElement="_DFD19418-CB47-428A-B67F-B1588366B810" targetElement="_28B16064-0F2A-48D0-8F64-AF1B9A0E2CFE">
+        <di:waypoint x="680" y="260" />
+        <di:waypoint x="720" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_6ECD8FA5-31AE-4132-BF42-8C807128DE63" dmnElementRef="_86A22C71-16D6-4C70-909D-B57E58815746" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="380" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_E97FB286-C306-4FE9-A229-0FFBBE8404BA" dmnElementRef="_1A45666B-1F98-4F53-ABEF-809EA7C2FE2F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_E95EBFBC-0D30-41E4-8FB8-F591E56E6E05" dmnElementRef="_6CF126B4-9546-4E10-AA1C-AD0076BCA72D" sourceElement="_6ECD8FA5-31AE-4132-BF42-8C807128DE63" targetElement="_E97FB286-C306-4FE9-A229-0FFBBE8404BA">
+        <di:waypoint x="460" y="420" />
+        <di:waypoint x="460" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_207595F6-52A5-479D-A7A6-A59814A59E9F" dmnElementRef="_2848401F-76F7-4709-8065-4574AB5F6894" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_EFAFAE79-C9A0-487B-9789-523814082EB3" dmnElementRef="_0FBA4FC4-7B13-4428-A696-404F3D059145" sourceElement="_E97FB286-C306-4FE9-A229-0FFBBE8404BA" targetElement="_207595F6-52A5-479D-A7A6-A59814A59E9F">
+        <di:waypoint x="460" y="260" />
+        <di:waypoint x="460" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_571BE698-FB67-497E-B5ED-18FC87F98569" dmnElementRef="_7EE46086-90A9-4D46-B900-8A1CE8DDA24C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="40" y="380" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_8363B143-92CD-40CC-B9A3-182D36A212A7" dmnElementRef="_A65654F9-CF99-416C-8FF2-F3D0D22EF468" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="160" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_77CE328B-668D-4882-9260-D583B003B6D8" dmnElementRef="_F196A44A-91C9-4C50-80CE-478B04F0FC0B" sourceElement="_571BE698-FB67-497E-B5ED-18FC87F98569" targetElement="_8363B143-92CD-40CC-B9A3-182D36A212A7">
+        <di:waypoint x="120" y="420" />
+        <di:waypoint x="240" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_15D880D1-A2C7-407B-BD31-EDA6933AC61B" dmnElementRef="_A38ED3F5-3CC7-407A-8902-114AE0CE2FC1" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-60" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_502BAD57-3B07-46C2-A53B-CFA7BEC47F1A" dmnElementRef="_05E5F233-6344-43D1-B302-F25FDD2C775E" sourceElement="_571BE698-FB67-497E-B5ED-18FC87F98569" targetElement="_15D880D1-A2C7-407B-BD31-EDA6933AC61B">
+        <di:waypoint x="120" y="420" />
+        <di:waypoint x="20" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_44C797E0-9F9C-4E8B-8135-84EE87E64BFA" dmnElementRef="_490A1FF5-BAC1-4C63-8777-2BD49633F274" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="60" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_5A8EBA8A-1547-49DD-BDF9-A311CE969422" dmnElementRef="_0C78E7D4-A39B-4A56-B562-C4EDD9002F4D" sourceElement="_8363B143-92CD-40CC-B9A3-182D36A212A7" targetElement="_44C797E0-9F9C-4E8B-8135-84EE87E64BFA">
+        <di:waypoint x="240" y="260" />
+        <di:waypoint x="140" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_B1CD8CAA-3565-4BB0-B32C-AD7435837FCF" dmnElementRef="_192609D0-A073-4770-A546-36A5447D5C4C" sourceElement="_15D880D1-A2C7-407B-BD31-EDA6933AC61B" targetElement="_44C797E0-9F9C-4E8B-8135-84EE87E64BFA">
+        <di:waypoint x="20" y="260" />
+        <di:waypoint x="140" y="100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_155403ED-682D-4B01-8154-0BB0579A5B5D" dmnElementRef="_FC138D26-84C7-46FF-B801-827C573F208F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="-160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_A982F41D-1EE2-49D8-9826-F2538CA945A7" dmnElementRef="_C6524FC9-335A-4D64-9419-82AAA8AF49D4" sourceElement="_44C797E0-9F9C-4E8B-8135-84EE87E64BFA" targetElement="_155403ED-682D-4B01-8154-0BB0579A5B5D">
+        <di:waypoint x="140" y="60" />
+        <di:waypoint x="460" y="-120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_EF3AF528-E8D7-4491-8FBC-AD65DC7D7FF9" dmnElementRef="_1DA38FAB-1ED1-4437-B6BD-B6FF215CA82C" sourceElement="_207595F6-52A5-479D-A7A6-A59814A59E9F" targetElement="_155403ED-682D-4B01-8154-0BB0579A5B5D">
+        <di:waypoint x="460" y="60" />
+        <di:waypoint x="460" y="-120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_A78779DF-908C-401D-B5E6-4012EBF0A26A" dmnElementRef="_9CE342A7-38E9-406B-B4EF-4A551FA9A2D4" sourceElement="_28B16064-0F2A-48D0-8F64-AF1B9A0E2CFE" targetElement="_155403ED-682D-4B01-8154-0BB0579A5B5D">
+        <di:waypoint x="720" y="60" />
+        <di:waypoint x="460" y="-120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_3EAD56AE-320B-4B6B-B30D-71255D4C9098" dmnElementRef="_8599F40C-1C70-4840-85DE-A8E2B4F7D3FB" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-120" y="-200" width="1380" height="540" />
+        <dmndi:DMNDecisionServiceDividerLine id="_EA473BC6-36B4-4170-8925-641CFD4DAA7F">
+          <di:waypoint x="-120" y="-40" />
+          <di:waypoint x="200" y="-40" />
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_D7F2111B-49E1-4903-98ED-FC3B177109C7" id="_286133D9-5DE7-432C-9617-E82C5F5B408A" name="Data Structure">
+  <itemDefinition id="_307C2C64-701D-4AA9-926F-5DBBD9AE0D68" name="benefits" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_71FB9DF2-B4F7-45DF-ACE5-573FE9537825" name="type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_5DB6E4C9-947E-4766-B1F6-06902DA2B401" kie:constraintType="enumeration">
+        <text>&quot;Hospital Reimbursement&quot;, &quot;Hospital Cash&quot;, &quot;Surgical Cash&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_4D485883-5742-495A-B101-160D02445AC0" name="system" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_710AFA61-99D6-49B6-98CA-994764B8657F" name="runDate" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_FCEC42F9-304C-4779-8B0C-3C69506B792B" name="policy" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_BA3B070E-048E-43C4-B6BF-D1D5468F9941" name="benefitEligStatus" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_19F85B96-395A-470B-BA56-5C87013F5556" kie:constraintType="enumeration">
+        <text>&quot;Active&quot;, &quot;Inactive&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_15C0EB25-C143-454D-A022-4F154B8F01C4" name="currentClaim" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_11EFAF95-C2D2-42B0-BC31-74F85A03F39D" kie:constraintType="enumeration">
+        <text>&quot;Null&quot;, &quot;Not Null&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_997E45A0-90F5-4BB9-A8AA-F8B88CFA43F7" name="exclusions" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_DDEE52AF-2EB8-4ACD-8D90-8EB353C5192F" kie:constraintType="enumeration">
+        <text>&quot;Pre-Conditions Exclusion&quot;, &quot;Cosmetic Procedure Exclusion&quot;, &quot;No Exclusion&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_7648A5C9-1DB5-4ACA-94A7-D9322D81C317" name="productCode" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_6D06288F-7688-4C91-8145-A7FFA5D5C282" kie:constraintType="enumeration">
+        <text>&quot;CP&quot;, &quot;CPN1&quot;, &quot;CPN2&quot;, &quot;CPN3&quot;, &quot;CPN4&quot;, &quot;CPN5&quot;, &quot;CPN6&quot;, &quot;MSA&quot;, &quot;PAB&quot;, &quot;PPM&quot;, &quot;AEC&quot;, &quot;AEC2N1&quot;, &quot;AEC2N2&quot;, &quot;AEC2N3&quot;, &quot;HCP&quot;, &quot;HCP1&quot;, &quot;HCP1N1&quot;, &quot;HCP1N2&quot;, &quot;HCP1N3&quot;, &quot;HCPN1&quot;, &quot;HCPN2&quot;, &quot;HCPN3&quot;, &quot;HCPPE&quot;, &quot;HTPR&quot;, &quot;HTPRN1&quot;, &quot;HTPRN2&quot;, &quot;HTPRN3&quot;, &quot;HTPRN4&quot;, &quot;HTPRN5&quot;, &quot;HTPRN6&quot;, &quot;JUHCP&quot;, &quot;JUHCPN1&quot;, &quot;JUHCPN2&quot;, &quot;JUHCPN3&quot;, &quot;JUHCPPE&quot;, &quot;MBC&quot;, &quot;MBCN1&quot;, &quot;MBCN2&quot;, &quot;MBCN3&quot;, &quot;MBCN4&quot;, &quot;MBCN5&quot;, &quot;MBCN6&quot;, &quot;MBCW&quot;, &quot;MCP&quot;, &quot;MCP1&quot;, &quot;MPC1N1&quot;, &quot;MPC1N2&quot;, &quot;MPC1N3&quot;, &quot;MPCW&quot;, &quot;MHC&quot;, &quot;MLP&quot;, &quot;MLPN1&quot;, &quot;MLPN2&quot;, &quot;MLPN3&quot;, &quot;MLPN4&quot;, &quot;MLPN5&quot;, &quot;MLPN6&quot;, &quot;MLPW&quot;, &quot;P10A&quot;, &quot;PMP&quot;, &quot;PMPR&quot;, &quot;PMPRN1&quot;, &quot;PMPRN2&quot;, &quot;PMPRN3&quot;, &quot;PMPRN4&quot;, &quot;PMPRN5&quot;, &quot;PMPRN6&quot;, &quot;PMPRW&quot;, &quot;PMPW&quot;, &quot;RHC&quot;, &quot;RHI&quot;, &quot;RHIN1&quot;, &quot;RHIN2&quot;, &quot;RHIN3&quot;, &quot;SCP&quot;, &quot;SCPN1&quot;, &quot;SCPN2&quot;, &quot;SCPN3&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_44B1EFAC-69A4-44A2-94E5-DDD68EFABF59" name="diagnosisCodeList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_DE85D3A2-0869-4F7A-A342-BFBCAC54F214" name="description" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_BA2A79AE-DB15-491D-9E21-F76E8E689B58" name="costReasonableness" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_E8DFECC6-4022-48E5-9F1F-52F52FC22400" kie:constraintType="enumeration">
+        <text>&quot;Unreasonable&quot;, &quot;Questionable&quot;, &quot;Reasonable&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_06F49925-ABB7-4DC5-96EA-F12C9864585E" name="code2" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_95F76120-0B54-4AFD-8B60-1E284346D17F" kie:constraintType="enumeration">
+        <text>&quot;3&quot;, &quot;4.9&quot;, &quot;5&quot;, &quot;7.1&quot;, &quot;8.61&quot;, &quot;211.3&quot;, &quot;455.6&quot;, &quot;535.5&quot;, &quot;455&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_BCCF6EF9-7428-485C-BF26-EC3E9E30B318" name="code" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_091FD7D2-2980-4CD8-BAD1-172B5B1AAA6C" kie:constraintType="enumeration">
+        <text>&quot;3&quot;, &quot;4.9&quot;, &quot;5&quot;, &quot;7.1&quot;, &quot;7.9&quot;, &quot;211.3&quot;, &quot;361.01&quot;, &quot;455&quot;, &quot;455.6&quot;, &quot;535.5&quot;, &quot;550.90&quot;, &quot;553.9&quot;, &quot;8.61&quot;, &quot;824.8&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_3905A216-CF14-4287-935A-6CB3AFECBFD6" name="catastrophicIndicator" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_17B9A2E9-5578-4ADA-8707-D2C2C85533B3" name="treatmentCodeList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_EB8681BB-6B45-4882-903E-C0EE01424477" name="surgicalCode" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_B09EE7FD-18C4-429A-A60D-B56984B3013F" kie:constraintType="enumeration">
+        <text>&quot;0253&quot;, &quot;0254&quot;, &quot;0357&quot;, &quot;0882&quot;, &quot;1138&quot;, &quot;1406&quot;, &quot;0017&quot;, &quot;0018&quot;, &quot;0021&quot;, &quot;0030&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_28AA5F78-8F13-4D42-B67B-28E8ADF559AE" name="surgeryAssmts" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_3FE74FED-D3C7-47BA-8732-A8AD434DBAD2" kie:constraintType="enumeration">
+        <text>&quot;Questionable&quot;, &quot;Appropriate&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_382F1518-298B-4F6D-8710-8372F3AAE7C3" name="severity" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_CF0B5E8A-2D36-40DC-B159-7D305329A162" name="cost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_58E0BB16-8C7B-482C-9FE9-381D41AC29C1" name="code" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_BAEB8920-DB2E-4EAF-B6E6-EEB32B170913" name="claims" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_122780CF-EBB3-4D4C-AB7A-862A560840F2" name="SurgeryCostAmount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_526A39FB-80B4-4192-A592-315C4D2E04D2" name="medicalCenterType" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_2E6B39E7-7587-4D31-B1F9-2BBF26ACA0B3" kie:constraintType="enumeration">
+        <text>&quot;Clinic&quot;, &quot;Hospital&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_FACB5C7D-883B-4E4C-A524-9C18229A674D" name="medicalCenterCode" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+      <typeConstraint id="_000D7AC3-CBE0-4DAD-B4EE-7C39D6819102" kie:constraintType="enumeration">
+        <text>115, 123, 144, 155, 179</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_A2D24937-E874-4850-8AB3-0F766600A41E" name="subType" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_BAF3A17F-0CC6-41E2-A7C8-E48C49C2D68B" kie:constraintType="enumeration">
+        <text>&quot;Surgery&quot;, &quot;Dental&quot;, &quot;Treatment&quot;, &quot;Long Treatment&quot;, &quot;Cosmetic&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_AFCD6AE1-DFDA-4550-85D7-C174E8504E75" name="redFlagIndicator" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_D8B6348D-7EB9-4A19-A5FA-CEA23BE3E3D1" name="Date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_FD87CEFA-9BF0-4F1C-BD2B-FB6BD3A80566" name="redFlagReason" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_0D19AD9D-50EF-47CD-8B9E-B3425A4BE2E8" name="unstructeredData" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_9D7F981D-1D18-45A7-BD5D-BF22B4485644" name="nonDisScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_515E776A-1E81-4BF4-B181-3945F4712508" name="fraudIndicator" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_95FC2DC5-5F9D-4EC1-9FF7-C00ABB870725" name="geographicCount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_7A23C3CC-7CFB-4853-9BD2-551890DA02C1" name="lengthStay" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_915DE83D-E8BD-48BA-8E9A-7E6A8284C72B" name="type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_D75AA4E8-E962-496A-9903-9F96CD5D97AF" kie:constraintType="enumeration">
+        <text>&quot;Medical&quot;, &quot;Not Medical&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_B59CC4CE-DC24-49F4-941C-B26854D29BE3" name="geographicArea" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_2F4A3DEA-BE6B-40CE-9498-1118C832B784" kie:constraintType="enumeration">
+        <text>&quot;USA&quot;, &quot;Canada&quot;, &quot;Other&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_D57449D4-2D1E-4018-B8B3-063140502538" name="currency" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+      <typeConstraint id="_2F7ACB9E-4A7B-4B03-8C19-8F34A3181FCB" kie:constraintType="enumeration">
+        <text>&quot;USD&quot;, &quot;CAD&quot;</text>
+      </typeConstraint>
+    </itemComponent>
+    <itemComponent id="_C8C68E40-BD5C-46A5-BC49-419156042861" name="billedAmount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_1CF86032-E8A6-4DA6-B60E-C77719711F7D" name="prevClaimsSubmitted" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
