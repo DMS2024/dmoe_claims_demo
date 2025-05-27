@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:included0="https://kie.org/dmn/_D7F2111B-49E1-4903-98ED-FC3B177109C7" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_7BB807DB-2851-434B-AB91-FA84CEEB2055" id="_D0BDE990-6109-43E0-A432-40E1536D4DF0" name="DMN_41EEADCD-3EC9-4FBA-8CA8-0CEB566EDD7B">
+  <import id="_8E9E743C-C5F2-4675-AD26-8E072D0273E1" name="Data" importType="http://www.omg.org/spec/DMN/20180521/MODEL/" namespace="https://kie.org/dmn/_D7F2111B-49E1-4903-98ED-FC3B177109C7" locationURI="./Data Structure.dmn" />
+  <inputData name="Diagnosis Code List" id="_2AFF3179-65A3-40E4-B4EF-3ACB1FC6794B">
+    <variable name="Diagnosis Code List" id="_7008555E-1A60-4169-A966-C3E2621C7B71" typeRef="Data.diagnosisCodeList" />
+  </inputData>
+  <inputData name="Treatment Code List" id="_F116B806-E598-4CA7-BA98-C7BDD09BA526">
+    <variable name="Treatment Code List" id="_35103E0A-A18A-44F0-B392-673B96B24976" typeRef="Data.treatmentCodeList" />
+  </inputData>
+  <decision name="Length of Stay Percentile List" id="_AD65FA24-C4A2-404E-AE63-0E960B5FC87D">
+    <variable name="Length of Stay Percentile List" id="_02B41C08-1A44-44D6-95A4-82061FA17EDA" typeRef="Any" />
+    <informationRequirement id="_42C3FF5F-0D03-49D1-99C0-5ADC4472B72F">
+      <requiredInput href="#_2AFF3179-65A3-40E4-B4EF-3ACB1FC6794B" />
+    </informationRequirement>
+    <informationRequirement id="_314D0A24-EF96-4A4C-8679-DEE203C11CAD">
+      <requiredInput href="#_F116B806-E598-4CA7-BA98-C7BDD09BA526" />
+    </informationRequirement>
+    <decisionTable id="_670583CC-D957-4D49-B513-2EB968191018" typeRef="Any" hitPolicy="FIRST" label="Length of Stay Percentile List">
+      <input id="_E1E740EB-8417-43C4-95E5-BB780AF6030A">
+        <inputExpression id="_12DEFD11-6180-4C05-AEA9-300007F67284" typeRef="string">
+          <text>Treatment Code List.code</text>
+        </inputExpression>
+      </input>
+      <input id="_5F70A22A-7CAF-4AEF-A297-733CB87CDBC0">
+        <inputExpression id="_50A32343-D0E5-42BA-8224-F05E7A44DE93" typeRef="string">
+          <text>Diagnosis Code List.code</text>
+        </inputExpression>
+      </input>
+      <output id="_0A7308ED-DC27-4451-B2D0-DF217F4BDA97" name="Length of Stay 50th Percentile List" typeRef="number" />
+      <output id="_DCDEC01B-6DB5-4A1B-8B0A-1304BADE092A" name="Length of Stay 75th Percentile List" typeRef="number" />
+      <output id="_0A41439C-5B33-42E9-8C88-CCB859E96E1A" name="Length of Stay 90th Percentile List" typeRef="number" />
+      <annotation name="Annotations" />
+      <rule id="_3BB6322C-49F8-4579-9217-D7AFF46634A9">
+        <inputEntry id="_4324A4D4-C06D-4FF2-BEC5-452A1319909B">
+          <text>&quot;0357&quot;</text>
+        </inputEntry>
+        <inputEntry id="_89F73C12-ACF9-4661-BBF7-DD51AE3EFFA5">
+          <text>&quot;535.5&quot;</text>
+        </inputEntry>
+        <outputEntry id="_E18DB4DF-3BEB-44F4-8FA1-D877BE7EBDF4">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_49F2E2F7-3F10-49B3-B120-73CBF43805CD">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_B3D6F42B-7D79-4D98-B284-08ECA8B5F94E">
+          <text>3</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_A0897D33-4B4E-4685-9F35-4F1E891860F8">
+        <inputEntry id="_4093240B-3905-4A15-9854-CCCBE519978D">
+          <text>&quot;0357&quot;</text>
+        </inputEntry>
+        <inputEntry id="_1FB839FF-C6D3-4AAC-A106-0481DCEED68B">
+          <text>&quot;211.3&quot;</text>
+        </inputEntry>
+        <outputEntry id="_DC58FB5B-19C4-4737-947B-148549A8223B">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_E46CA79E-77F4-4A6B-8CDE-8F3016F2FE58">
+          <text>3</text>
+        </outputEntry>
+        <outputEntry id="_B7205E69-A058-46FA-B85E-C870179110C4">
+          <text>5</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_FCD801D3-50CC-421A-9218-035F013BDEDF">
+        <inputEntry id="_41CE30E0-6A71-4C01-ACF1-729C28F1BC15">
+          <text>&quot;0253&quot;</text>
+        </inputEntry>
+        <inputEntry id="_F5BBF195-E204-4BBC-9780-B682F7C5EAB3">
+          <text>[&quot;211.3&quot; , &quot;455.6&quot; , &quot;535.5&quot; , &quot;455&quot;]</text>
+        </inputEntry>
+        <outputEntry id="_807A108F-6AE3-4E98-BB39-5C69CEA7C6D2">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_6F14CDD9-0A54-42AF-84A0-B84BA3EEF8ED">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_A18AB5C3-BDD5-4487-A0F0-B7A369854D68">
+          <text>2</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_E835C0F6-8DCF-4DCE-AD03-5F1DA5ED3B34">
+        <inputEntry id="_598A4042-438A-400A-A0FC-18E6C840394B">
+          <text>&quot;0254&quot;</text>
+        </inputEntry>
+        <inputEntry id="_4030CE4E-016C-45A1-84FC-A022CD773571">
+          <text>&quot;211.3&quot;</text>
+        </inputEntry>
+        <outputEntry id="_EBFA05F6-7219-415C-8B19-86F57C45B8C9">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_852C1BF4-9E76-485B-AD55-429349A5BC61">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_DF4C5E08-55C5-409F-8DBA-FC1F836E131C">
+          <text>2</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_D3241397-0227-40EF-96CB-5AF6056E1DA8">
+        <inputEntry id="_ECB8F89B-A62F-48FF-A080-FA3009F12159">
+          <text>&quot;0254&quot;</text>
+        </inputEntry>
+        <inputEntry id="_AAD81B6E-4BB2-4D10-96D2-3616F287ACD4">
+          <text>[&quot;455.6&quot; , &quot;455&quot;]</text>
+        </inputEntry>
+        <outputEntry id="_FE6DB256-877C-4AE2-85DF-9D544A3085CB">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_61F0E1F8-EC9A-422A-8096-906F174F31A3">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_C94F45F7-B3C9-4C15-BA54-51B878CC5785">
+          <text>3</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_E93565C0-C50E-46CD-A860-DEDB66CDF223">
+        <inputEntry id="_54A42AD6-CE6E-4136-9185-8B92F1AF7693">
+          <text>&quot;0254&quot;</text>
+        </inputEntry>
+        <inputEntry id="_81828A17-2268-4D8C-B12D-5F6D41AC3C42">
+          <text>&quot;535.5&quot;</text>
+        </inputEntry>
+        <outputEntry id="_1D8E0038-8C91-4915-BFAD-42FF1967004A">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="_3A1EF9C0-8B64-4AD4-989B-FFD93490A156">
+          <text>3</text>
+        </outputEntry>
+        <outputEntry id="_0E1FCDE4-3500-4FB7-B702-6EC91AFDC104">
+          <text>3</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision name="Surgery Cost Percentile List" id="_EDC14B33-EEF8-44CD-B527-224E339216CE">
+    <variable name="Surgery Cost Percentile List" id="_E720D190-3CFF-4412-AC75-631DC55746C3" typeRef="Any" />
+    <informationRequirement id="_E608F09D-B6F7-45FD-AD0C-DDC6087ED037">
+      <requiredInput href="#_DDB080A3-4952-4FC4-8EC4-515FAE84B6C5" />
+    </informationRequirement>
+    <informationRequirement id="_83E474FA-8BD9-4CFC-A7A0-2007FB648AF2">
+      <requiredInput href="#_F116B806-E598-4CA7-BA98-C7BDD09BA526" />
+    </informationRequirement>
+    <decisionTable id="_CDDF1086-8990-46A1-BB50-E3ACAB6B81AE" typeRef="Any" hitPolicy="UNIQUE" label="Surgery Cost Percentile List">
+      <input id="_059DDE57-E4B9-4938-ADF0-5D2BEF29CE9A">
+        <inputExpression id="_AD68EDB2-0DC4-48D2-B1FD-3F9CD3122596" typeRef="string">
+          <text>Claims.medicalCenterType</text>
+        </inputExpression>
+      </input>
+      <input id="_F62C5FB6-FEEB-4749-9D3E-ACE4011FE16F">
+        <inputExpression id="_C0D4CD11-BCEF-43F7-BEF9-11C39AB4D9A5" typeRef="number">
+          <text>Claims.medicalCenterCode</text>
+        </inputExpression>
+      </input>
+      <input id="_817EA19D-7FE5-4A66-B613-44BE6CE21976">
+        <inputExpression id="_7EFFDA44-D6A6-4D9B-816E-4C5679659235" typeRef="string">
+          <text>Treatment Code List.code</text>
+        </inputExpression>
+      </input>
+      <output id="_EF57807B-8AC0-42DE-B2D6-708E34E33A1F" name="Surgery Cost 50th Percentile List" typeRef="number" />
+      <output id="_19C52D55-4BC3-4FDC-B499-1A9F8530FB2B" name="Surgery Cost 75th Percentile List" typeRef="number" />
+      <output id="_EB91A661-AEFA-4956-91A8-61F5FDBA6629" name="Surgery Cost 90th Percentile List" typeRef="number" />
+      <annotation name="Annotations" />
+      <rule id="_6A50B6F6-A307-470D-A51D-355C32C079D3">
+        <inputEntry id="_4849BE11-7BAB-42A9-802A-0C4841EBF065">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_EFBCE42D-3277-4C2C-9AA7-E40C562F5C45">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_D8C73AC7-765F-433B-B003-6BE6A5DC2F6A">
+          <text>&quot;0357&quot;</text>
+        </inputEntry>
+        <outputEntry id="_2243588A-B761-4368-8EE4-77E10DFAD679">
+          <text>4600</text>
+        </outputEntry>
+        <outputEntry id="_E5D1F736-7F49-482E-85F4-C8840DEF7029">
+          <text>5800</text>
+        </outputEntry>
+        <outputEntry id="_1F0C03E0-2B9C-4F3E-A4D7-4AF917AF5F58">
+          <text>6600</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_3908E76C-567C-46DC-8B74-E1292D198CEE">
+        <inputEntry id="_3ED1032E-0096-4A2B-B02F-96D1E6168718">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_3E2610A3-AA1C-4257-8BE6-B790C8ED0126">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_06B678DB-1608-4BE2-B874-18D984F0F323">
+          <text>&quot;0253&quot;</text>
+        </inputEntry>
+        <outputEntry id="_E8379D1B-354F-40F4-8BB9-0F9CB51D5362">
+          <text>6000</text>
+        </outputEntry>
+        <outputEntry id="_33D74FE2-C0A5-40E2-ABCE-3F22C4ED473F">
+          <text>7000</text>
+        </outputEntry>
+        <outputEntry id="_16867C8D-D546-459B-86FA-C672E3230DFF">
+          <text>8700</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_88ECE9F4-BB00-4476-8380-6FA6C0200A8A">
+        <inputEntry id="_3E5CA4DC-8125-4A18-8189-F9E81DD2890D">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_8A94D794-4A76-4372-997C-E65F55199A1F">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_C10CD7BB-4417-4C19-9D50-602396A82418">
+          <text>&quot;0254&quot;</text>
+        </inputEntry>
+        <outputEntry id="_ADA329A4-DF4E-4F2C-93AB-159BEFEF5454">
+          <text>6360</text>
+        </outputEntry>
+        <outputEntry id="_05168093-4360-4B75-A677-FB43167DEE91">
+          <text>8500</text>
+        </outputEntry>
+        <outputEntry id="_E31B8338-FE5F-4F55-B6F3-1E1484E11EF9">
+          <text>11000</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_1DB5F6C1-1FF2-423B-8DE0-4B307D1AF459">
+        <inputEntry id="_E32AF2A6-C068-4318-AAD7-78EBEF98D080">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_BF1A2ED5-810F-4029-B7F4-56E7945D54F4">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_A8FA4A52-59BE-4AD9-9342-7A90524EE662">
+          <text>&quot;1170&quot;</text>
+        </inputEntry>
+        <outputEntry id="_BADBC9D8-D1B4-4DCF-A273-1F3BB6A38BC9">
+          <text>7655</text>
+        </outputEntry>
+        <outputEntry id="_28B5F580-7C63-4549-8D6D-2782CD74471C">
+          <text>11600</text>
+        </outputEntry>
+        <outputEntry id="_46DCC84D-BF09-44D6-A5EA-3609DDFF3352">
+          <text>18000</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_19CC0A5D-0EB7-4166-9EB3-2E12AA085DC1">
+        <inputEntry id="_6460593F-3763-4E31-87B2-20C766DC74D4">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_646162B3-C0A9-4E61-919A-FE5658E464CF">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_D0CCA83E-52A8-4989-98AD-005BCB39E323">
+          <text>&quot;1151&quot;</text>
+        </inputEntry>
+        <outputEntry id="_B3AEA5CD-A0E9-4947-96BD-BF413ECAF144">
+          <text>5000</text>
+        </outputEntry>
+        <outputEntry id="_03040FBF-C846-4D53-B340-36ED227C29C3">
+          <text>7255</text>
+        </outputEntry>
+        <outputEntry id="_23012C56-C950-4C80-B778-C3175575CC81">
+          <text>10000</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_B301B357-A250-4027-9960-703C913D5CA8">
+        <inputEntry id="_6E6FEF9D-72B7-4076-B796-7C06F9D2C09B">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_5390AFFB-0F93-4650-AA06-A0920A15306D">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_B997DAB0-1300-4EBE-9DAF-337F75C64471">
+          <text>&quot;0882&quot;</text>
+        </inputEntry>
+        <outputEntry id="_A91A99FD-8100-477D-9360-F5BEB39AE88C">
+          <text>2050</text>
+        </outputEntry>
+        <outputEntry id="_CC2EC2C7-35FC-48BC-8038-3EED078DD343">
+          <text>2600</text>
+        </outputEntry>
+        <outputEntry id="_6613FF92-9B58-4093-B7D6-4AA59CC00FF8">
+          <text>4000</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_B2D346F3-21A0-4000-A637-0F845D1CC2A6">
+        <inputEntry id="_8D63AF90-44A3-464A-A3B1-F6F9AF3C89FD">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_97075B09-F2C4-4DA4-A0ED-3E243C72031C">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_28546E9A-59F7-4181-A527-A1B011FF73A4">
+          <text>&quot;0679&quot;</text>
+        </inputEntry>
+        <outputEntry id="_371F6B43-3C02-4C53-943E-D271FCDD017E">
+          <text>19000</text>
+        </outputEntry>
+        <outputEntry id="_A026CAE3-E86C-4C03-A596-D968CF2E0B48">
+          <text>25000</text>
+        </outputEntry>
+        <outputEntry id="_E0EA931A-8B6A-4CAB-B43A-927F6084234D">
+          <text>29200</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_67AAF8A4-4D89-487F-B99D-35F3ECD98C90">
+        <inputEntry id="_4DCBEF89-50CE-4E39-BEDB-739D201EC7C5">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_B1FE24EB-3CE3-471F-A3B6-8F2EB0DDBD94">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_389FA594-2571-4D8E-9B43-8CC84FED498E">
+          <text>&quot;1171&quot;</text>
+        </inputEntry>
+        <outputEntry id="_D7E12DC7-5A41-4DE3-B99E-736B00F492EE">
+          <text>2765</text>
+        </outputEntry>
+        <outputEntry id="_F4B4E50B-8B56-4AFD-9716-5B78D86E53B6">
+          <text>5000</text>
+        </outputEntry>
+        <outputEntry id="_220D8375-0559-43B8-9B9F-CE46A201A944">
+          <text>8000</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_5E59825B-1D5F-49DC-B8AB-BD2B297F44AF">
+        <inputEntry id="_01BC1C2A-560D-4493-88FE-08E5135A4C84">
+          <text>&quot;Clinic&quot;</text>
+        </inputEntry>
+        <inputEntry id="_E7C4B453-7A33-4A2A-A58C-D4E7176EF65A">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_3E9A7D38-89FA-4446-A0C9-E8A54FEE847F">
+          <text>&quot;0845&quot;</text>
+        </inputEntry>
+        <outputEntry id="_49E2C72C-1CA0-4198-9844-F93B0E39509A">
+          <text>2200</text>
+        </outputEntry>
+        <outputEntry id="_007B43B3-B154-466D-BBA4-0E2ACDCDAA67">
+          <text>3500</text>
+        </outputEntry>
+        <outputEntry id="_36D4EAE6-CC16-4F09-87FD-F495EE6A0CC3">
+          <text>4350</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_D0E08DF3-0460-4FB1-BF9E-0BBCDF3BC539">
+        <inputEntry id="_EEEF6F10-E301-43F2-B463-5316DB352F7D">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_0DE0EF16-D8CA-49E4-8BBA-A791C3338E08">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_1E8880B2-A245-4E10-9735-2299635863E4">
+          <text>&quot;0357&quot;</text>
+        </inputEntry>
+        <outputEntry id="_B8836C69-78C2-4EBA-B6B1-870C7B617530">
+          <text>6000</text>
+        </outputEntry>
+        <outputEntry id="_716ACC96-A137-4FC0-BE0F-E1D3B4BCE9ED">
+          <text>8000</text>
+        </outputEntry>
+        <outputEntry id="_65A534A2-9D61-40F0-B24F-862E75DE7C56">
+          <text>9000</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_1012ABA1-5439-4E1F-AA6C-155FDDA8D905">
+        <inputEntry id="_A0DBF550-DDC6-4C9D-8A92-CE039D87E58D">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_650A7881-7081-484C-8536-DDF59051EDCB">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_BE18B81A-0FBB-4EDD-B122-0B9C4BC9ED6D">
+          <text>&quot;0253&quot;</text>
+        </inputEntry>
+        <outputEntry id="_7F3C8722-4C5F-4FFE-B91F-436605F460D7">
+          <text>8000</text>
+        </outputEntry>
+        <outputEntry id="_906DB8CF-E28F-4E83-948A-57D146455023">
+          <text>9000</text>
+        </outputEntry>
+        <outputEntry id="_D75FEDE2-B7AF-4B82-83CF-6B36B9FAA831">
+          <text>10900</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_47D95D5B-2174-4956-ACB3-09E8CB3B8E6A">
+        <inputEntry id="_650B0E51-778B-4202-BCA6-78EBB38D5B1E">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_27116319-BAFD-4DB6-977F-868B31CCC376">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_69D1E3B8-224A-40EB-8CCC-12246640569B">
+          <text>&quot;0254&quot;</text>
+        </inputEntry>
+        <outputEntry id="_3A376B9E-047C-44D5-8A45-431CFD13E9F8">
+          <text>8250</text>
+        </outputEntry>
+        <outputEntry id="_156E3888-5F37-4819-AB26-3E542D1B991A">
+          <text>10250</text>
+        </outputEntry>
+        <outputEntry id="_A02AC206-4776-41BA-9694-A89CE57029C0">
+          <text>12500</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_5532C6A4-C855-4B92-86F8-B1557EB32321">
+        <inputEntry id="_413196BC-A85E-4209-9F1B-3D3AE1BECC9A">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_17F7D562-C154-448D-B43B-566D32E494AD">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_06ADA474-AC20-4890-B36B-927EB02E1731">
+          <text>&quot;1170&quot;</text>
+        </inputEntry>
+        <outputEntry id="_FD810BC8-36C9-47A9-B3D0-D47E4D7C5984">
+          <text>10000</text>
+        </outputEntry>
+        <outputEntry id="_90D7F106-DDB1-49E9-A48A-824CBF2961BE">
+          <text>15000</text>
+        </outputEntry>
+        <outputEntry id="_72E2A99E-E0CB-443A-9921-D0AA61A3BEBD">
+          <text>20000</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_6E07C9AB-86B7-4F00-8B87-679D5F7CE486">
+        <inputEntry id="_FC2156BE-D73C-48C2-B5B3-A10914776340">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_5155AC7D-8DFE-4EED-B47F-B3BA6DF3D341">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_0B5EE403-B0DE-42BF-A1E2-805B81D9BF87">
+          <text>&quot;1151&quot;</text>
+        </inputEntry>
+        <outputEntry id="_EA52D215-3203-425B-9C2A-55C1AB002F8E">
+          <text>12500</text>
+        </outputEntry>
+        <outputEntry id="_2BC15585-C2E5-465D-B2B1-CD548A970D67">
+          <text>18750</text>
+        </outputEntry>
+        <outputEntry id="_257F8C81-D3FC-4027-865C-DF1EB8589D98">
+          <text>22500</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_1072D928-7C4C-414A-8458-F25F88C44102">
+        <inputEntry id="_C0BA99A0-7F60-4D50-9DC7-3DEB5D2377C8">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_0551681F-9086-4241-B819-BA3CAD72A779">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_D262CAAF-4B98-450A-AED0-6C6C0E4FBB69">
+          <text>&quot;0882&quot;</text>
+        </inputEntry>
+        <outputEntry id="_A494E250-1B6C-4257-8B78-679828406CE7">
+          <text>6000</text>
+        </outputEntry>
+        <outputEntry id="_1AD55F7C-4A06-4792-82B6-4D15AEFE4F7C">
+          <text>6500</text>
+        </outputEntry>
+        <outputEntry id="_6A87AE45-CF86-4662-9724-8F8289E5C3E4">
+          <text>10000</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_E5F3A149-C814-450C-86D7-BE17190E5923">
+        <inputEntry id="_561668D8-BC6B-44F7-8EB7-75B40D9674DC">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_E7E54AA2-FD10-41E8-9B32-E22FC2A7A535">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_32C1788C-3D8C-4694-8079-31978C981B09">
+          <text>&quot;0679&quot;</text>
+        </inputEntry>
+        <outputEntry id="_188167FF-B5D0-4B17-89A4-359802557E80">
+          <text>18845</text>
+        </outputEntry>
+        <outputEntry id="_6E5E4F97-FD3C-4D4A-84F6-F9734E303C82">
+          <text>22790</text>
+        </outputEntry>
+        <outputEntry id="_7C3B4B40-C757-4DD1-8C88-0798D4D06D62">
+          <text>40673</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_6896997C-A3F8-49FA-BB99-85B48B0AED53">
+        <inputEntry id="_7E0B695F-DC86-4533-93A4-677B0E3912AF">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_5F019A65-4229-4927-B314-BE2AC1D01A3D">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_AE628D5E-3FEA-45B4-BDCA-843ADAA76193">
+          <text>&quot;1171&quot;</text>
+        </inputEntry>
+        <outputEntry id="_0E280026-378B-4104-9A03-BE4107EAF65C">
+          <text>2200</text>
+        </outputEntry>
+        <outputEntry id="_6B842282-6004-4D5D-B191-39BAA5093823">
+          <text>3300</text>
+        </outputEntry>
+        <outputEntry id="_695EB040-A85D-4813-AF43-2A8F8B1EA17A">
+          <text>3960</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_C4E54410-75F7-4EB3-9C54-EC5C85F26668">
+        <inputEntry id="_936BE967-F35E-4A47-B62E-420CB2CEFB70">
+          <text>&quot;Hospital&quot;</text>
+        </inputEntry>
+        <inputEntry id="_512BBB7A-2E80-4BA0-A195-6B01CEA623D8">
+          <text>115</text>
+        </inputEntry>
+        <inputEntry id="_99B9FC18-79FC-4EEF-B932-CFDAF04D9DE9">
+          <text>&quot;0845&quot;</text>
+        </inputEntry>
+        <outputEntry id="_BF38F37B-4458-4E35-B215-D934FC3519C9">
+          <text>5000</text>
+        </outputEntry>
+        <outputEntry id="_2AE975DC-40AB-47B6-9FDD-783B0AD71EC6">
+          <text>12000</text>
+        </outputEntry>
+        <outputEntry id="_A06EDCAB-22F9-4275-9794-E524937AD575">
+          <text>14400</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData name="Claims" id="_DDB080A3-4952-4FC4-8EC4-515FAE84B6C5">
+    <variable name="Claims" id="_669976C7-30B8-496F-842A-B94C760ABFD7" typeRef="Data.claims" />
+  </inputData>
+  <decision name="Treatment Code Count" id="_5C7A647A-2C08-4EAA-BF43-06DAF8C110FF">
+    <variable name="Treatment Code Count" id="_A51E3046-FD2F-446C-9567-4B0B33A34769" typeRef="number" />
+    <informationRequirement id="_4C7F2380-3AF3-4272-916A-8118182E6397">
+      <requiredInput href="#_F116B806-E598-4CA7-BA98-C7BDD09BA526" />
+    </informationRequirement>
+    <literalExpression id="_1807E7CB-7384-475F-A6BA-7DEDA6F00D8A" typeRef="number" label="Treatment Code Count">
+      <text>count(Treatment Code List.code)</text>
+    </literalExpression>
+  </decision>
+  <decision name="Treatment Surgical Code Assestment" id="_734ACDA8-777E-463D-BD65-F9FFBBC9C468">
+    <variable name="Treatment Surgical Code Assestment" id="_8C1F6EF8-4A90-490E-AC1C-802A0D3E92E4" typeRef="string" />
+    <informationRequirement id="_7F4D8961-09AE-47EB-8DFB-4E1E0AA3CA83">
+      <requiredInput href="#_F116B806-E598-4CA7-BA98-C7BDD09BA526" />
+    </informationRequirement>
+    <informationRequirement id="_50ACA780-3D7E-4944-914E-F2F78C45A5C9">
+      <requiredInput href="#_2AFF3179-65A3-40E4-B4EF-3ACB1FC6794B" />
+    </informationRequirement>
+    <decisionTable id="_C226E060-E6C9-40BE-A0CE-BBD9DCEF4AC1" typeRef="string" hitPolicy="UNIQUE" label="Treatment Surgical Code Assestment">
+      <input id="_15C083A1-0592-4565-B895-6E6F48FBB04C">
+        <inputExpression id="_0CC514DC-4863-4DE8-9DFE-3CD00F3F3B43" typeRef="string">
+          <text>Treatment Code List.surgicalCode</text>
+        </inputExpression>
+      </input>
+      <input id="_C36F5AB7-1E1A-46C0-A83B-AC80E25C2CAE">
+        <inputExpression id="_8272C9D0-E980-44AC-8C1E-996616E4F10E" typeRef="string">
+          <text>Diagnosis Code List.code</text>
+        </inputExpression>
+      </input>
+      <output id="_62AC5786-F598-4062-A643-E997A2E68B5A" name="Output-2" />
+      <annotation name="Annotations" />
+      <rule id="_275D26E2-0E16-484B-9F34-90C4BEE34CF7">
+        <inputEntry id="_B852F01D-B61C-4D15-9F5F-F904445C9AD9">
+          <text>[&quot;0253&quot; , &quot;0254&quot; , &quot;0357&quot; , &quot;0882&quot; , &quot;1138&quot; , &quot;1406&quot;]</text>
+        </inputEntry>
+        <inputEntry id="_20E9E770-5C1E-42D1-B7FA-253B909C9327">
+          <text>[&quot;3&quot;,&quot;4.9&quot;,&quot;5&quot;,&quot;7.1&quot;,&quot;7.9&quot;,&quot;211.3&quot;,&quot;8.61&quot;,&quot;455.6&quot;,&quot;535.5&quot;,&quot;455&quot;]</text>
+        </inputEntry>
+        <outputEntry id="_64AF4C96-22FD-48FC-9CB2-82EF44618E85">
+          <text>&quot;Appropriate&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_B2DBA94A-6DCF-41D2-B68E-56F7467F1963">
+        <inputEntry id="_A69654D0-BC13-4824-A10A-163A48E8CA68">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_5234A901-C8DA-43C0-AC5F-45D59B450AE0">
+          <text>not[&quot;3&quot;,&quot;4.9&quot;,&quot;5&quot;,&quot;7.1&quot;,&quot;7.9&quot;,&quot;211.3&quot;,&quot;8.61&quot;,&quot;455.6&quot;,&quot;535.5&quot;,&quot;455&quot;]</text>
+        </inputEntry>
+        <outputEntry id="_67E3E121-9ABC-4A64-AEA9-258F2D90D886">
+          <text>&quot;Questionable&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_83887D85-ADA1-47B2-8624-EDFC95397492">
+        <inputEntry id="_691C1754-3FFF-4ECF-915B-F02C4546E9CD">
+          <text>not[&quot;0253&quot;,&quot;0254&quot;,&quot;0357&quot;,&quot;0882&quot;,&quot;1138&quot;,&quot;1406&quot;]</text>
+        </inputEntry>
+        <inputEntry id="_C520FA14-8F59-4E97-9D9C-FE9268FBC40D">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_79F5073E-8FA1-4EC1-A150-651228408BB6">
+          <text>&quot;Questionable&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision name="Treatment Appropriateness" id="_43B08C06-1AB8-4CF9-9041-E81C81688998">
+    <variable name="Treatment Appropriateness" id="_763E808F-F3B2-4BC5-BB33-CA4C1D924391" typeRef="string" />
+    <informationRequirement id="_8453DADC-A504-4342-96B8-40687BFBD6E5">
+      <requiredDecision href="#_5C7A647A-2C08-4EAA-BF43-06DAF8C110FF" />
+    </informationRequirement>
+    <informationRequirement id="_FE9E087E-DF1A-4F82-9A91-D924C51744EF">
+      <requiredDecision href="#_734ACDA8-777E-463D-BD65-F9FFBBC9C468" />
+    </informationRequirement>
+    <decisionTable id="_0886B791-FA92-4981-93A8-4253210161E8" typeRef="string" hitPolicy="UNIQUE" label="Treatment Appropriateness">
+      <input id="_A6E861D7-2153-4E0A-BE21-AD0E218EA480">
+        <inputExpression id="_1848D42E-4BF9-4B12-83B7-E98B4F82DE40" typeRef="number">
+          <text>Treatment Code Count</text>
+        </inputExpression>
+      </input>
+      <input id="_C5A775BC-3734-4E98-8785-EA01679640CB">
+        <inputExpression id="_5E0386FB-88D0-4009-8D2D-97BFDEF43E37" typeRef="string">
+          <text>Treatment Surgical Code Assestment</text>
+        </inputExpression>
+      </input>
+      <output id="_0B6AEF27-0B12-4CF9-84C9-C613ECBC0CEA" name="Output-1" />
+      <annotation name="Annotations" />
+      <rule id="_44189A0E-0DB5-4E54-94C0-D68F3D121BAC">
+        <inputEntry id="_95C68868-DAC5-42DA-97E9-F6E1DAFD0796">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="_BDE1F147-38F4-41B2-8DEA-F9210CAFE42A">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_A2FD524B-A47F-44D8-BA61-893941CDE3EC">
+          <text>&quot;Appropriate&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_A767D147-E10C-46D1-A8A0-3DA0017E4F4C">
+        <inputEntry id="_9FE7F429-3050-402C-9B0B-BE6F532BA937">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="_CC369ED3-98CA-4009-A3BA-2872D5FBBDAB">
+          <text>&quot;Questionable&quot;</text>
+        </inputEntry>
+        <outputEntry id="_A0AC495A-0C9A-4192-B8B4-B944228FAB5B">
+          <text>&quot;Questionable&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_673553CA-2775-4EE3-B4B3-6D7B761AAD11">
+        <inputEntry id="_FE0BB5B5-87EC-49FD-9342-2AC2CA0050AF">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="_4451F14D-D852-4B46-9E96-7EAF6DEBD0BC">
+          <text>!= &quot; Questionable&quot;</text>
+        </inputEntry>
+        <outputEntry id="_B7C32ECE-5745-4E2D-8B62-277DB035C3F8">
+          <text>&quot;Questionable&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision name="Claim Length of Stay Reasonability" id="_D559CF3F-B4FC-4FFB-8FEF-CA1BA0BF27FB">
+    <variable name="Claim Length of Stay Reasonability" id="_177615C7-3010-4B1C-9B51-6DD08962B916" typeRef="string" />
+    <informationRequirement id="_4BADC5D9-CE13-46DC-8B6B-D3EEC7A4A5F1">
+      <requiredDecision href="#_AD65FA24-C4A2-404E-AE63-0E960B5FC87D" />
+    </informationRequirement>
+    <informationRequirement id="_85EEA39E-D3D9-4978-93BC-8AD8FB8FA4EF">
+      <requiredInput href="#_DDB080A3-4952-4FC4-8EC4-515FAE84B6C5" />
+    </informationRequirement>
+    <decisionTable id="_CF39961F-CB37-4C19-B60A-0E9D2FE0B204" typeRef="string" hitPolicy="UNIQUE" label="Claim Length of Stay Reasonability">
+      <input id="_A93152AB-C086-4E4D-8DD0-A2924073F3AB">
+        <inputExpression id="_C9AB5E58-706B-4E0A-A237-EFC5AFC8241F" typeRef="number">
+          <text>Claims.lengthStay</text>
+        </inputExpression>
+      </input>
+      <output id="_6F80CACB-7D2D-4E9F-AC6B-0C88A82AC6B7" name="Output-1" />
+      <annotation name="Annotations" />
+      <rule id="_5E161BCB-46CB-4DEF-BEBD-8DB5E36F4663">
+        <inputEntry id="_3BDDB949-EBFA-4F33-B7E5-C27025779CC0">
+          <text>&lt;= (Length of Stay Percentile List.Length of Stay 75th Percentile List)</text>
+        </inputEntry>
+        <outputEntry id="_06F46976-CD69-4341-95E6-0809343C28A4">
+          <text>&quot;Reasonable&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_68B703B7-A356-4A01-94B8-40E4C736C70B">
+        <inputEntry id="_391C95E9-48D1-4997-B3A5-30EA88B07202">
+          <text>](Length of Stay Percentile List.Length of Stay 75th Percentile List)..(Length of Stay Percentile List.Length of Stay 90th Percentile List)]</text>
+        </inputEntry>
+        <outputEntry id="_87BB7AB5-3937-46A6-8872-BED780DC3D13">
+          <text>&quot;Questionable&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_91A5F968-FBA0-421D-9C8A-69E36005D8B2">
+        <inputEntry id="_4839D761-69DF-4FD5-BA1C-89BB3720601A">
+          <text>&gt; (Length of Stay Percentile List.Length of Stay 90th Percentile List)</text>
+        </inputEntry>
+        <outputEntry id="_09E41868-4E84-4701-8103-48DB829280AA">
+          <text>&quot;Unreasonable&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_166C60A8-1867-4E8B-B3FD-D264D2E50EB1" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_218ABF96-BF95-48D6-B268-176CE0F8E68A">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B42CDCF4-B191-4AC6-AA2C-F484D376AB79">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_35349FB3-6C3A-4AC7-BCE8-86A3996C418B">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3409FE0B-3355-42A3-A6D4-DA8F6D2DB1E1">
+            <kie:width>60</kie:width>
+            <kie:width>209</kie:width>
+            <kie:width>252</kie:width>
+            <kie:width>172</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>271</kie:width>
+            <kie:width>216</kie:width>
+            <kie:width>222</kie:width>
+            <kie:width>191</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_26C0E652-4793-4A89-BEE8-D24E18740256">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_670583CC-D957-4D49-B513-2EB968191018">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6E986130-2778-4AE0-844D-A6CDA1071449">
+            <kie:width>60</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>160</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>160</kie:width>
+            <kie:width>148</kie:width>
+            <kie:width>123</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>148</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>135</kie:width>
+            <kie:width>179</kie:width>
+            <kie:width>216</kie:width>
+            <kie:width>222</kie:width>
+            <kie:width>191</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CDDF1086-8990-46A1-BB50-E3ACAB6B81AE">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1807E7CB-7384-475F-A6BA-7DEDA6F00D8A">
+            <kie:width>390</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C226E060-E6C9-40BE-A0CE-BBD9DCEF4AC1">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0886B791-FA92-4981-93A8-4253210161E8">
+            <kie:width>60</kie:width>
+            <kie:width>142</kie:width>
+            <kie:width>228</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CF39961F-CB37-4C19-B60A-0E9D2FE0B204">
+            <kie:width>60</kie:width>
+            <kie:width>262</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_CBC2A6C7-D74A-4D8B-9B6D-537B663922E7" dmnElementRef="_2AFF3179-65A3-40E4-B4EF-3ACB1FC6794B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="580" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_400E0934-2C83-4BBA-832E-10E53C590452" dmnElementRef="_F116B806-E598-4CA7-BA98-C7BDD09BA526" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="340" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_8884FA91-4416-4431-B226-C6F6D4F8D89A" dmnElementRef="_AD65FA24-C4A2-404E-AE63-0E960B5FC87D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_3137603D-6F88-4D34-B8FC-80A9FF554DD9" dmnElementRef="_42C3FF5F-0D03-49D1-99C0-5ADC4472B72F" sourceElement="_CBC2A6C7-D74A-4D8B-9B6D-537B663922E7" targetElement="_8884FA91-4416-4431-B226-C6F6D4F8D89A">
+        <di:waypoint x="660" y="220" />
+        <di:waypoint x="460" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_5BEAF6BA-A5A4-4422-84E5-5A40C407258C" dmnElementRef="_314D0A24-EF96-4A4C-8679-DEE203C11CAD" sourceElement="_400E0934-2C83-4BBA-832E-10E53C590452" targetElement="_8884FA91-4416-4431-B226-C6F6D4F8D89A">
+        <di:waypoint x="420" y="220" />
+        <di:waypoint x="460" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_B787B3C5-0EB0-45B8-94CA-92235B3623C8" dmnElementRef="_EDC14B33-EEF8-44CD-B527-224E339216CE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="40" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_C0BA0C80-FA86-4FCA-A5E9-449EA3A5A30F" dmnElementRef="_DDB080A3-4952-4FC4-8EC4-515FAE84B6C5" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="0" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_5D6518DE-7B01-4CB9-9FA0-32BC31AFE6E7" dmnElementRef="_E608F09D-B6F7-45FD-AD0C-DDC6087ED037" sourceElement="_C0BA0C80-FA86-4FCA-A5E9-449EA3A5A30F" targetElement="_B787B3C5-0EB0-45B8-94CA-92235B3623C8">
+        <di:waypoint x="80" y="220" />
+        <di:waypoint x="120" y="40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_5FDA16BD-46BF-49F5-8B7C-F4B4E8A84C3D" dmnElementRef="_83E474FA-8BD9-4CFC-A7A0-2007FB648AF2" sourceElement="_400E0934-2C83-4BBA-832E-10E53C590452" targetElement="_B787B3C5-0EB0-45B8-94CA-92235B3623C8">
+        <di:waypoint x="420" y="220" />
+        <di:waypoint x="120" y="40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_889494CC-3095-41DC-AADB-9518EB72A190" dmnElementRef="_5C7A647A-2C08-4EAA-BF43-06DAF8C110FF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="700" y="40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_04B35D1A-1F9D-41E9-93AF-F22876D7256B" dmnElementRef="_4C7F2380-3AF3-4272-916A-8118182E6397" sourceElement="_400E0934-2C83-4BBA-832E-10E53C590452" targetElement="_889494CC-3095-41DC-AADB-9518EB72A190">
+        <di:waypoint x="420" y="220" />
+        <di:waypoint x="780" y="80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_7F4727CB-E6E1-4CB1-BC48-257BF52A091D" dmnElementRef="_734ACDA8-777E-463D-BD65-F9FFBBC9C468" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="580" y="-60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_C07D2B02-8324-4BCC-9A85-7E75BF3B9875" dmnElementRef="_7F4D8961-09AE-47EB-8DFB-4E1E0AA3CA83" sourceElement="_400E0934-2C83-4BBA-832E-10E53C590452" targetElement="_7F4727CB-E6E1-4CB1-BC48-257BF52A091D">
+        <di:waypoint x="420" y="220" />
+        <di:waypoint x="660" y="-20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_31007D6E-6462-4282-B226-AC5326964F0F" dmnElementRef="_50ACA780-3D7E-4944-914E-F2F78C45A5C9" sourceElement="_CBC2A6C7-D74A-4D8B-9B6D-537B663922E7" targetElement="_7F4727CB-E6E1-4CB1-BC48-257BF52A091D">
+        <di:waypoint x="660" y="220" />
+        <di:waypoint x="660" y="-20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_0F017F27-281D-433D-B02A-A92D7610F56E" dmnElementRef="_43B08C06-1AB8-4CF9-9041-E81C81688998" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="800" y="-160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_5ED0DB0E-6597-4677-B94E-CC47154949AE" dmnElementRef="_8453DADC-A504-4342-96B8-40687BFBD6E5" sourceElement="_889494CC-3095-41DC-AADB-9518EB72A190" targetElement="_0F017F27-281D-433D-B02A-A92D7610F56E">
+        <di:waypoint x="780" y="80" />
+        <di:waypoint x="880" y="-120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_13A54FD2-B962-47C2-83CA-0BED8DCF2E2D" dmnElementRef="_FE9E087E-DF1A-4F82-9A91-D924C51744EF" sourceElement="_7F4727CB-E6E1-4CB1-BC48-257BF52A091D" targetElement="_0F017F27-281D-433D-B02A-A92D7610F56E">
+        <di:waypoint x="660" y="-20" />
+        <di:waypoint x="880" y="-120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_783EE429-9998-450E-A426-D8BB249EF86B" dmnElementRef="_D559CF3F-B4FC-4FFB-8FEF-CA1BA0BF27FB" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="340" y="-180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_9315DD1C-CE64-448A-9269-F5BE08AB600C" dmnElementRef="_4BADC5D9-CE13-46DC-8B6B-D3EEC7A4A5F1" sourceElement="_8884FA91-4416-4431-B226-C6F6D4F8D89A" targetElement="_783EE429-9998-450E-A426-D8BB249EF86B">
+        <di:waypoint x="460" y="60" />
+        <di:waypoint x="420" y="-140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_2D5B8B1F-F1C9-4E7F-B088-10E86D8DADDD" dmnElementRef="_85EEA39E-D3D9-4978-93BC-8AD8FB8FA4EF" sourceElement="_C0BA0C80-FA86-4FCA-A5E9-449EA3A5A30F" targetElement="_783EE429-9998-450E-A426-D8BB249EF86B">
+        <di:waypoint x="80" y="220" />
+        <di:waypoint x="420" y="-140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
