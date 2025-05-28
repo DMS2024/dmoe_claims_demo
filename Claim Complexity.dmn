@@ -10,7 +10,9 @@
       <requiredInput href="#_1AFA583A-A131-4E82-93E4-8792AC9E043B" />
     </informationRequirement>
     <literalExpression id="_511709D3-7E5A-4BE0-9E4E-47859AE2FD0C" typeRef="number" label="Diagnosis Code Count">
-      <text>count(Diagnosis Code List.code)</text>
+      <text>if Diagnosis Code List.code != &quot;&quot; then 
+count(Diagnosis Code List.code) 
+else 0</text>
     </literalExpression>
   </decision>
   <decision name="Comorbidity Complexity" id="_9C07C5C3-E207-4C1A-B681-59C595949DDA">
@@ -169,7 +171,7 @@ count(Comorbidity Complexity) else 0
       <annotation name="Annotations" />
       <rule id="_67C42DC9-C086-4194-9A0B-033D0250DADF">
         <inputEntry id="_E98A9A62-5CA0-4246-BEB5-565AD18F0FA2">
-          <text>1</text>
+          <text>0</text>
         </inputEntry>
         <inputEntry id="_C84EC571-B5AF-4337-ADE7-EAB17A1806D0">
           <text>-</text>
@@ -189,7 +191,7 @@ count(Comorbidity Complexity) else 0
       </rule>
       <rule id="_A4B6AC72-8318-4098-B925-B6DBF11FE413">
         <inputEntry id="_CE824089-3245-4C2A-9EFA-FE027C9E596D">
-          <text>1</text>
+          <text>0</text>
         </inputEntry>
         <inputEntry id="_25894CFA-FECC-499F-B172-4A905F33F972">
           <text>-</text>
@@ -209,7 +211,7 @@ count(Comorbidity Complexity) else 0
       </rule>
       <rule id="_98D68701-C49A-43D9-972D-DFB642EEC869">
         <inputEntry id="_F74D5819-9500-4339-ABFE-855C868B92BC">
-          <text>&lt;2</text>
+          <text>1</text>
         </inputEntry>
         <inputEntry id="_CB4CDCE2-89A2-4257-9AB5-6F05B1165760">
           <text>&quot;High&quot;</text>
@@ -229,7 +231,7 @@ count(Comorbidity Complexity) else 0
       </rule>
       <rule id="_C27DE897-4801-424B-BD5E-AF39FB2C2050">
         <inputEntry id="_90DCF2DD-77EB-46DD-B804-C1CA0FC92B11">
-          <text>&lt;2</text>
+          <text>1</text>
         </inputEntry>
         <inputEntry id="_F018ABDF-B6E8-4483-A7D4-0DFB01FA83E2">
           <text>&quot;Low&quot;</text>
@@ -249,7 +251,7 @@ count(Comorbidity Complexity) else 0
       </rule>
       <rule id="_7F48AB07-1931-4A26-90A7-51C1D226B4AA">
         <inputEntry id="_BB69FB8A-B550-4263-97DE-0FD5B750C398">
-          <text>&lt;2</text>
+          <text>1</text>
         </inputEntry>
         <inputEntry id="_060B03EF-64B2-4A1A-A957-CEC3018316C9">
           <text>&quot;Moderate&quot;</text>
@@ -278,7 +280,9 @@ count(Comorbidity Complexity) else 0
       <requiredInput href="#_86A22C71-16D6-4C70-909D-B57E58815746" />
     </informationRequirement>
     <literalExpression id="_C6DA83A9-AAED-4002-B859-94221005A66A" typeRef="number" label="Past 12 Months Claim Count">
-      <text>count(Claims.prevClaimsSubmitted)</text>
+      <text>if Claims.prevClaimsSubmitted != &quot;&quot; then
+count(Claims.prevClaimsSubmitted)
+else 0</text>
     </literalExpression>
   </decision>
   <decision name="Claim History Complexity" id="_2848401F-76F7-4709-8065-4574AB5F6894">
@@ -362,7 +366,9 @@ count(Comorbidity Complexity) else 0
       <requiredInput href="#_7EE46086-90A9-4D46-B900-8A1CE8DDA24C" />
     </informationRequirement>
     <literalExpression id="_ECFF2DCE-33DD-4FF1-8BD7-36580CCFD3D0" typeRef="number" label="Treatment Code Count">
-      <text>count(Treatment Code List.code)</text>
+      <text>if Treatment Code List.code != &quot;&quot; then
+count(Treatment Code List.code)
+else 0</text>
     </literalExpression>
   </decision>
   <decision name="Maximum Severity of Listed Treatment Codes" id="_A38ED3F5-3CC7-407A-8902-114AE0CE2FC1">
@@ -741,7 +747,7 @@ count(Comorbidity Complexity) else 0
             <kie:width>154</kie:width>
             <kie:width>222</kie:width>
             <kie:width>118</kie:width>
-            <kie:width>100</kie:width>
+            <kie:width>242</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C6DA83A9-AAED-4002-B859-94221005A66A">

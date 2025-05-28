@@ -84,7 +84,7 @@
     <itemComponent id="_CF0B5E8A-2D36-40DC-B159-7D305329A162" name="cost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_58E0BB16-8C7B-482C-9FE9-381D41AC29C1" name="code" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_58E0BB16-8C7B-482C-9FE9-381D41AC29C1" name="code" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
