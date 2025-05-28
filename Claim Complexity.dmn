@@ -10,7 +10,8 @@
       <requiredInput href="#_1AFA583A-A131-4E82-93E4-8792AC9E043B" />
     </informationRequirement>
     <literalExpression id="_511709D3-7E5A-4BE0-9E4E-47859AE2FD0C" typeRef="number" label="Diagnosis Code Count">
-      <text>if Diagnosis Code List.code != &quot;&quot; then 
+      <text>if ((Diagnosis Code List.code != &quot;&quot; ) or (Diagnosis Code List.code != null))
+then 
 count(Diagnosis Code List.code) 
 else 0</text>
     </literalExpression>
@@ -281,7 +282,8 @@ count(Comorbidity Complexity)
       <requiredInput href="#_86A22C71-16D6-4C70-909D-B57E58815746" />
     </informationRequirement>
     <literalExpression id="_C6DA83A9-AAED-4002-B859-94221005A66A" typeRef="number" label="Past 12 Months Claim Count">
-      <text>if Claims.prevClaimsSubmitted != &quot;&quot; then
+      <text>if ((Claims.prevClaimsSubmitted != &quot;&quot;) or (Claims.prevClaimsSubmitted != null))
+then
 count(Claims.prevClaimsSubmitted)
 else 0</text>
     </literalExpression>
@@ -291,7 +293,7 @@ else 0</text>
     <informationRequirement id="_0FBA4FC4-7B13-4428-A696-404F3D059145">
       <requiredDecision href="#_1A45666B-1F98-4F53-ABEF-809EA7C2FE2F" />
     </informationRequirement>
-    <decisionTable id="_BEEF682C-EB0B-4376-AE47-5CAC185D0CB6" typeRef="Any" hitPolicy="UNIQUE" label="Claim History Complexity">
+    <decisionTable id="_BEEF682C-EB0B-4376-AE47-5CAC185D0CB6" typeRef="Any" hitPolicy="FIRST" label="Claim History Complexity">
       <input id="_761CC68A-9983-4BB6-B74A-2C010BAC7E63">
         <inputExpression id="_92D0A62E-6F46-4B79-B65D-F92C3D0C1AF5" typeRef="number">
           <text>Past 12 Months Claim Count</text>
@@ -367,7 +369,8 @@ else 0</text>
       <requiredInput href="#_7EE46086-90A9-4D46-B900-8A1CE8DDA24C" />
     </informationRequirement>
     <literalExpression id="_ECFF2DCE-33DD-4FF1-8BD7-36580CCFD3D0" typeRef="number" label="Treatment Code Count">
-      <text>if Treatment Code List.code != &quot;&quot; then
+      <text>if ((Treatment Code List.code != &quot;&quot;) or (Treatment Code List.code != null)) 
+then
 count(Treatment Code List.code)
 else 0</text>
     </literalExpression>
@@ -378,7 +381,9 @@ else 0</text>
       <requiredInput href="#_7EE46086-90A9-4D46-B900-8A1CE8DDA24C" />
     </informationRequirement>
     <literalExpression id="_732367B4-9200-4C3C-BBEC-E4E9B6FDD2A1" typeRef="number" label="Maximum Severity of Listed Treatment Codes">
-      <text>max(Treatment Code List.severity)</text>
+      <text>if(Treatment Code List.severity != null) then
+max(Treatment Code List.severity)
+else 0</text>
     </literalExpression>
   </decision>
   <decision name="Treatment Complexity" id="_490A1FF5-BAC1-4C63-8777-2BD49633F274">
@@ -389,7 +394,7 @@ else 0</text>
     <informationRequirement id="_192609D0-A073-4770-A546-36A5447D5C4C">
       <requiredDecision href="#_A38ED3F5-3CC7-407A-8902-114AE0CE2FC1" />
     </informationRequirement>
-    <decisionTable id="_F76EC59C-AD5A-4133-855C-60C585E22AD5" typeRef="Any" hitPolicy="UNIQUE" label="Treatment Complexity">
+    <decisionTable id="_F76EC59C-AD5A-4133-855C-60C585E22AD5" typeRef="Any" hitPolicy="FIRST" label="Treatment Complexity">
       <input id="_78DD2803-B586-49AE-ABB7-F069495D55C5">
         <inputExpression id="_AEC175A9-609B-46EB-9EB8-942B44A5EC87" typeRef="number">
           <text>Treatment Code Count</text>
@@ -729,7 +734,7 @@ else 0</text>
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_511709D3-7E5A-4BE0-9E4E-47859AE2FD0C">
-            <kie:width>363</kie:width>
+            <kie:width>1114</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C0F5D72F-EBC5-4A43-AC21-E1EADFC7A809">
             <kie:width>60</kie:width>
@@ -740,7 +745,7 @@ else 0</text>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_B245C2D3-B4E7-4CB6-BF36-81BF22BD6815">
-            <kie:width>594</kie:width>
+            <kie:width>816</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_968EC3BB-424C-4E72-B2BA-D737EE43D9E9">
             <kie:width>60</kie:width>
@@ -752,7 +757,7 @@ else 0</text>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C6DA83A9-AAED-4002-B859-94221005A66A">
-            <kie:width>480</kie:width>
+            <kie:width>819</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_BEEF682C-EB0B-4376-AE47-5CAC185D0CB6">
             <kie:width>60</kie:width>
@@ -762,7 +767,7 @@ else 0</text>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_ECFF2DCE-33DD-4FF1-8BD7-36580CCFD3D0">
-            <kie:width>461</kie:width>
+            <kie:width>1285</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_732367B4-9200-4C3C-BBEC-E4E9B6FDD2A1">
             <kie:width>558</kie:width>

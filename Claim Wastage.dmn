@@ -662,7 +662,7 @@ else 0</text>
     <informationRequirement id="_50ACA780-3D7E-4944-914E-F2F78C45A5C9">
       <requiredInput href="#_2AFF3179-65A3-40E4-B4EF-3ACB1FC6794B" />
     </informationRequirement>
-    <decisionTable id="_C226E060-E6C9-40BE-A0CE-BBD9DCEF4AC1" typeRef="string" hitPolicy="UNIQUE" label="Treatment Surgical Code Assestment">
+    <decisionTable id="_C226E060-E6C9-40BE-A0CE-BBD9DCEF4AC1" typeRef="string" hitPolicy="FIRST" label="Treatment Surgical Code Assestment">
       <input id="_15C083A1-0592-4565-B895-6E6F48FBB04C">
         <inputExpression id="_0CC514DC-4863-4DE8-9DFE-3CD00F3F3B43" typeRef="string">
           <text>Treatment Code List.surgicalCode</text>
@@ -854,7 +854,7 @@ else 0</text>
     <informationRequirement id="_A3829EF5-8E5B-4F30-B4AA-7CC89865EA26">
       <requiredInput href="#_DDB080A3-4952-4FC4-8EC4-515FAE84B6C5" />
     </informationRequirement>
-    <decisionTable id="_E012B691-905D-4FA1-8585-EB0D30DCB723" typeRef="Any" hitPolicy="UNIQUE" label="Claim Cost Reasonableness">
+    <decisionTable id="_E012B691-905D-4FA1-8585-EB0D30DCB723" typeRef="Any" hitPolicy="FIRST" label="Claim Cost Reasonableness">
       <input id="_5C064061-CF9A-4E23-BD4B-5D341F47A37C">
         <inputExpression id="_92F4303F-D150-4DDB-9818-BBB84C027881" typeRef="number">
           <text>Claims.SurgeryCostAmount</text>
