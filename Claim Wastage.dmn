@@ -605,7 +605,7 @@
       <requiredInput href="#_F116B806-E598-4CA7-BA98-C7BDD09BA526" />
     </informationRequirement>
     <literalExpression id="_1807E7CB-7384-475F-A6BA-7DEDA6F00D8A" typeRef="number" label="Treatment Code Count">
-      <text>count(Treatment Code List.code)</text>
+      <text>if Treatment Code List.code!= &quot;&quot; then count(Treatment Code List.code) else 0</text>
     </literalExpression>
   </decision>
   <decision name="Treatment Surgical Code Assestment" id="_734ACDA8-777E-463D-BD65-F9FFBBC9C468">
