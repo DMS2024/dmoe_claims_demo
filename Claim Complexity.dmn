@@ -135,7 +135,8 @@ else 0</text>
     </informationRequirement>
     <literalExpression id="_B245C2D3-B4E7-4CB6-BF36-81BF22BD6815" typeRef="number" label="Catastrophic Diagnosis Code Count">
       <text>if Comorbidity Complexity = &quot;High&quot; then 
-count(Comorbidity Complexity) else 0
+count(Comorbidity Complexity)
+ else 0
 </text>
     </literalExpression>
   </decision>
@@ -166,8 +167,8 @@ count(Comorbidity Complexity) else 0
           <text>Catastrophic Diagnosis Code Count</text>
         </inputExpression>
       </input>
-      <output id="_3D0EA43A-9BD3-4430-AE73-6AC3F42C6EC6" name="Diagnosis Complexity" typeRef="string" />
-      <output id="_EB7850B6-9D09-46B3-B64B-845D8719C243" name="Messages" typeRef="string" />
+      <output id="_3D0EA43A-9BD3-4430-AE73-6AC3F42C6EC6" name="Output" typeRef="string" />
+      <output id="_EB7850B6-9D09-46B3-B64B-845D8719C243" name="Message" typeRef="string" />
       <annotation name="Annotations" />
       <rule id="_67C42DC9-C086-4194-9A0B-033D0250DADF">
         <inputEntry id="_E98A9A62-5CA0-4246-BEB5-565AD18F0FA2">
@@ -296,8 +297,8 @@ else 0</text>
           <text>Past 12 Months Claim Count</text>
         </inputExpression>
       </input>
-      <output id="_F9A4E414-7D9E-4C48-B915-8804AD8D4841" name="Claim History Complexity" typeRef="string" />
-      <output id="_DDAD92C9-67A0-47A9-9BE0-8354271C39E1" name="Messages" typeRef="string" />
+      <output id="_F9A4E414-7D9E-4C48-B915-8804AD8D4841" name="Output" typeRef="string" />
+      <output id="_DDAD92C9-67A0-47A9-9BE0-8354271C39E1" name="Message" typeRef="string" />
       <annotation name="Annotations" />
       <rule id="_C0654F43-3B0A-4257-BA92-5BDDCB9720D4">
         <inputEntry id="_AD4DA8C9-AEAC-49AF-B5AC-F1D4C805EF17">
@@ -399,8 +400,8 @@ else 0</text>
           <text>Maximum Severity of Listed Treatment Codes</text>
         </inputExpression>
       </input>
-      <output id="_6F4B7005-AF4E-41C6-97BB-2D0321B904B1" name="Treatment Complexity" typeRef="string" />
-      <output id="_BD57A75D-80A8-4404-89CD-F8C39200548E" name="Messages" typeRef="string" />
+      <output id="_6F4B7005-AF4E-41C6-97BB-2D0321B904B1" name="Output" typeRef="string" />
+      <output id="_BD57A75D-80A8-4404-89CD-F8C39200548E" name="Message" typeRef="string" />
       <annotation name="Annotations" />
       <rule id="_9D8A6A02-4F1A-49CE-96C2-F85F20D50760">
         <inputEntry id="_A21B3893-1615-42CA-85E1-CE840677421D">
@@ -571,17 +572,17 @@ else 0</text>
     <decisionTable id="_964875DA-8099-4CEB-8044-4A39E51C0584" typeRef="string" hitPolicy="FIRST" label="Claim Complexity">
       <input id="_C33EA4E5-DA65-4929-B7D0-A36A643931F1">
         <inputExpression id="_EFA956EB-20D2-4ACB-973F-6DC30BE52003" typeRef="string">
-          <text>Diagnosis Complexity.Diagnosis Complexity</text>
+          <text>Diagnosis Complexity.Output</text>
         </inputExpression>
       </input>
       <input id="_B35AE5A2-0E87-4C42-BF96-5477139A1B8B">
         <inputExpression id="_EDE3C710-4A8B-4638-9B4F-77CEA58596B0" typeRef="string">
-          <text>Claim History Complexity.Claim History Complexity</text>
+          <text>Claim History Complexity.Output</text>
         </inputExpression>
       </input>
       <input id="_954E672A-F6FC-490B-880A-80873D9D87A5">
         <inputExpression id="_582560E1-58B0-4357-A7A2-A9093552CEFF" typeRef="string">
-          <text>Treatment Complexity.Treatment Complexity</text>
+          <text>Treatment Complexity.Output</text>
         </inputExpression>
       </input>
       <output id="_5F6A726A-AB84-47D5-9B43-44EACD3A6964" name="Output-1" />
@@ -776,10 +777,10 @@ else 0</text>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_964875DA-8099-4CEB-8044-4A39E51C0584">
             <kie:width>60</kie:width>
-            <kie:width>142</kie:width>
-            <kie:width>166</kie:width>
-            <kie:width>142</kie:width>
-            <kie:width>118</kie:width>
+            <kie:width>284</kie:width>
+            <kie:width>228</kie:width>
+            <kie:width>241</kie:width>
+            <kie:width>288</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
