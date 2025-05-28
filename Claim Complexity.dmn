@@ -23,7 +23,7 @@ else 0</text>
     <informationRequirement id="_B394D398-7281-43D3-9A09-4A58F5761B77">
       <requiredInput href="#_1AFA583A-A131-4E82-93E4-8792AC9E043B" />
     </informationRequirement>
-    <decisionTable id="_C0F5D72F-EBC5-4A43-AC21-E1EADFC7A809" typeRef="string" hitPolicy="UNIQUE" label="Comorbidity Complexity">
+    <decisionTable id="_C0F5D72F-EBC5-4A43-AC21-E1EADFC7A809" typeRef="string" hitPolicy="FIRST" label="Comorbidity Complexity">
       <input id="_CDD4DD58-23F6-45AF-BFB8-F8E7965FCF20">
         <inputExpression id="_602F4F41-B13C-427A-BC40-4A555DC1C28C" typeRef="number">
           <text>Diagnosis Code Count</text>

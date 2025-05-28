@@ -19,7 +19,7 @@
     <informationRequirement id="_6240188A-9FD1-487D-8AC6-58C11C67FE30">
       <requiredDecision href="#_03D8F669-4405-402D-9C33-486E1C63692B" />
     </informationRequirement>
-    <decisionTable id="_D1388F96-51EA-4FD5-9AB9-63BD98F38479" hitPolicy="UNIQUE" label="Claim Status" typeRef="string">
+    <decisionTable id="_D1388F96-51EA-4FD5-9AB9-63BD98F38479" hitPolicy="FIRST" label="Claim Status" typeRef="string">
       <input id="_678B6700-787E-43F4-8DFE-164A91590849">
         <inputExpression id="_58DC12DD-B93A-4058-BBA0-F14855C910D2" typeRef="string">
           <text>Claim Eligibility.Output</text>

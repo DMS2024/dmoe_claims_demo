@@ -352,7 +352,7 @@
     <informationRequirement id="_474000F8-4B2C-4432-A9DA-EC783F732E29">
       <requiredDecision href="#_168004B1-B8F0-4679-B121-729B3E1B542F" />
     </informationRequirement>
-    <decisionTable id="_1E8A927B-93C5-4500-A31B-FEE73B12697D" hitPolicy="ANY" label="Claim Eligibility" typeRef="Any">
+    <decisionTable id="_1E8A927B-93C5-4500-A31B-FEE73B12697D" hitPolicy="FIRST" label="Claim Eligibility" typeRef="Any">
       <input id="_AAC0DEC6-E67C-427E-8165-58270C902DC5">
         <inputExpression id="_B318F479-7E45-40DA-B064-35D7BF39356B" typeRef="string">
           <text>Claim Amount Eligibility.Output</text>
