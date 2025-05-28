@@ -43,7 +43,7 @@ else 0</text>
       <annotation name="Annotations" />
       <rule id="_59A5C0A7-A363-4F00-946D-C76E0CCDAB43">
         <inputEntry id="_A9DE24B9-71AE-4F28-99B5-56C52EA2D9F6">
-          <text>&lt;1</text>
+          <text>&lt;= 1</text>
         </inputEntry>
         <inputEntry id="_5946C619-685B-4C8E-B687-9E6F1C6D8646">
           <text>-</text>

@@ -681,7 +681,7 @@
     <informationRequirement id="_FE9E087E-DF1A-4F82-9A91-D924C51744EF">
       <requiredDecision href="#_734ACDA8-777E-463D-BD65-F9FFBBC9C468" />
     </informationRequirement>
-    <decisionTable id="_0886B791-FA92-4981-93A8-4253210161E8" typeRef="string" hitPolicy="UNIQUE" label="Treatment Appropriateness">
+    <decisionTable id="_0886B791-FA92-4981-93A8-4253210161E8" typeRef="string" hitPolicy="FIRST" label="Treatment Appropriateness">
       <input id="_A6E861D7-2153-4E0A-BE21-AD0E218EA480">
         <inputExpression id="_1848D42E-4BF9-4B12-83B7-E98B4F82DE40" typeRef="number">
           <text>Treatment Code Count</text>
@@ -864,7 +864,7 @@
     <informationRequirement id="_90C8A146-3C48-4E98-92D0-7C643684A891">
       <requiredInput href="#_6FC7543C-1AFE-4C0B-83FE-F0351449059C" />
     </informationRequirement>
-    <decisionTable id="_1A498ED3-1182-4E75-89F9-4EF54ED7A8D1" typeRef="Any" hitPolicy="FIRST" label="Claim Medical Wastage Acceptability List">
+    <decisionTable id="_1A498ED3-1182-4E75-89F9-4EF54ED7A8D1" typeRef="Any" hitPolicy="ANY" label="Claim Medical Wastage Acceptability List">
       <input id="_3AC6F280-ADCE-4BFE-B1F9-54874D03790C">
         <inputExpression id="_906B009D-5D40-4455-A67A-004BE0113FC3" typeRef="string">
           <text>Benefits.type</text>
