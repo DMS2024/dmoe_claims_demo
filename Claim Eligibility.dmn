@@ -339,6 +339,29 @@
           <text></text>
         </annotationEntry>
       </rule>
+      <rule id="_7905E15F-510A-4A67-B154-1457B1BC3E81">
+        <inputEntry id="_25586486-182E-42CC-9060-8EE9151C6364">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_88592A99-F338-43FE-A79F-CA3B425C56EB">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_5068B215-605E-46CA-85DF-60B3E1F3C250">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_0E0D024D-8AE0-4B65-B783-D3047F378887">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_1BBD90EF-F8B2-4D5A-A52F-C40362CA5827">
+          <text>&quot;Not Eligible&quot;</text>
+        </outputEntry>
+        <outputEntry id="_A3937A55-9F99-48C2-865A-798A5F45E76A">
+          <text>&quot;No Message&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
     </decisionTable>
   </decision>
   <decision name="Claim Eligibility" id="_7E45F12F-D551-4B26-BCB9-551D48CA6BD0">

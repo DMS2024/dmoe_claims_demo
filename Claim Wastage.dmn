@@ -150,6 +150,26 @@
           <text></text>
         </annotationEntry>
       </rule>
+      <rule id="_EB51D8BD-4F7F-4E50-A959-4A5A094819BA">
+        <inputEntry id="_A0C17B51-A930-48DB-9847-3798E95DDD55">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_33F28D45-6000-4AEA-BB4A-A7199F095B83">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_35762207-A216-4DD5-92D5-4B04AA125532">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="_2309068C-85D8-4E6E-9A2C-A38957C394F4">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="_20506E38-1C98-4EB6-8285-12905B804CD1">
+          <text>0</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
     </decisionTable>
   </decision>
   <decision name="Surgery Cost Percentile List" id="_EDC14B33-EEF8-44CD-B527-224E339216CE">
@@ -594,6 +614,29 @@
           <text></text>
         </annotationEntry>
       </rule>
+      <rule id="_1AC8075C-7B24-45B1-BC58-576241B3F069">
+        <inputEntry id="_FCE52614-75C0-4188-AE87-76C6CC46D56F">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_F619B991-78E7-49D1-9B2D-278FD29AA343">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_8819D52A-0F5B-4402-96B7-6AD6597BB3E5">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_96981D68-813B-4B90-9845-1FEBF7CA51F8">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="_29EBBE9E-1AD1-4FFF-9724-F617D47C9FBA">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="_B26B3639-4710-4D96-AB5A-68FCB2315445">
+          <text>0</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
     </decisionTable>
   </decision>
   <inputData name="Claims" id="_DDB080A3-4952-4FC4-8EC4-515FAE84B6C5">
@@ -605,7 +648,10 @@
       <requiredInput href="#_F116B806-E598-4CA7-BA98-C7BDD09BA526" />
     </informationRequirement>
     <literalExpression id="_1807E7CB-7384-475F-A6BA-7DEDA6F00D8A" typeRef="number" label="Treatment Code Count">
-      <text>if Treatment Code List.code!= &quot;&quot; then count(Treatment Code List.code) else 0</text>
+      <text>if ((Treatment Code List.code!= &quot;&quot; ) or (Treatment Code List.code != null))
+then 
+count(Treatment Code List.code) 
+else 0</text>
     </literalExpression>
   </decision>
   <decision name="Treatment Surgical Code Assestment" id="_734ACDA8-777E-463D-BD65-F9FFBBC9C468">
@@ -746,7 +792,7 @@
     <informationRequirement id="_85EEA39E-D3D9-4978-93BC-8AD8FB8FA4EF">
       <requiredInput href="#_DDB080A3-4952-4FC4-8EC4-515FAE84B6C5" />
     </informationRequirement>
-    <decisionTable id="_CF39961F-CB37-4C19-B60A-0E9D2FE0B204" typeRef="string" hitPolicy="UNIQUE" label="Claim Length of Stay Reasonability">
+    <decisionTable id="_CF39961F-CB37-4C19-B60A-0E9D2FE0B204" typeRef="string" hitPolicy="FIRST" label="Claim Length of Stay Reasonability">
       <input id="_A93152AB-C086-4E4D-8DD0-A2924073F3AB">
         <inputExpression id="_C9AB5E58-706B-4E0A-A237-EFC5AFC8241F" typeRef="number">
           <text>Claims.lengthStay</text>
@@ -781,6 +827,17 @@
           <text>&gt; (Length of Stay Percentile List.Length of Stay 90th Percentile List)</text>
         </inputEntry>
         <outputEntry id="_09E41868-4E84-4701-8103-48DB829280AA">
+          <text>&quot;Unreasonable&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_3F99DC60-EDD8-49C9-B708-4B4D555B1490">
+        <inputEntry id="_CB02498B-EB44-4E9B-9A97-73B8D18A8655">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_B28996BB-7700-4713-838E-25E4604EC2A9">
           <text>&quot;Unreasonable&quot;</text>
         </outputEntry>
         <annotationEntry>
@@ -848,6 +905,20 @@
           <text></text>
         </annotationEntry>
       </rule>
+      <rule id="_B8B43ECC-D54C-490B-8263-6838D01D9586">
+        <inputEntry id="_743A12D2-E583-429F-8142-20D85C694BFF">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_3F4BA591-CAB6-4F66-8FA1-D1D416C474A5">
+          <text>&quot;Unreasonable&quot;</text>
+        </outputEntry>
+        <outputEntry id="_B0D1071B-017A-4A09-871B-0EB3EC6481F8">
+          <text>&quot;No Message&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
     </decisionTable>
   </decision>
   <decision name="Claim Medical Wastage Acceptability List" id="_802C0EB2-0101-4935-B87D-79530E62E854">
@@ -864,7 +935,7 @@
     <informationRequirement id="_90C8A146-3C48-4E98-92D0-7C643684A891">
       <requiredInput href="#_6FC7543C-1AFE-4C0B-83FE-F0351449059C" />
     </informationRequirement>
-    <decisionTable id="_1A498ED3-1182-4E75-89F9-4EF54ED7A8D1" typeRef="Any" hitPolicy="ANY" label="Claim Medical Wastage Acceptability List">
+    <decisionTable id="_1A498ED3-1182-4E75-89F9-4EF54ED7A8D1" typeRef="Any" hitPolicy="FIRST" label="Claim Medical Wastage Acceptability List">
       <input id="_3AC6F280-ADCE-4BFE-B1F9-54874D03790C">
         <inputExpression id="_906B009D-5D40-4455-A67A-004BE0113FC3" typeRef="string">
           <text>Benefits.type</text>
@@ -1164,6 +1235,29 @@
           <text></text>
         </annotationEntry>
       </rule>
+      <rule id="_799196C9-CEA4-43DA-9A37-91493404B921">
+        <inputEntry id="_B7581A9D-4FCB-4F75-8C6E-A6AA1C44F3F5">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_B6D220B8-1EC1-42EC-98CA-07611B883D70">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_DA00BF64-4561-49BC-B629-D6A016D76450">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_B32B81D2-0D80-4C92-8659-E37AAE78800D">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_4A4314E9-B21A-48BF-BFC4-BFCA13BA0F72">
+          <text>&quot;Unaaceptable&quot;</text>
+        </outputEntry>
+        <outputEntry id="_CFAE82D9-ECA5-4125-8512-16DE9AE2633A">
+          <text>&quot;No Mesage&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
     </decisionTable>
   </decision>
   <inputData name="Benefits" id="_6FC7543C-1AFE-4C0B-83FE-F0351449059C">
@@ -1314,7 +1408,7 @@
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_1807E7CB-7384-475F-A6BA-7DEDA6F00D8A">
-            <kie:width>390</kie:width>
+            <kie:width>1029</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C226E060-E6C9-40BE-A0CE-BBD9DCEF4AC1">
             <kie:width>60</kie:width>
@@ -1332,7 +1426,7 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CF39961F-CB37-4C19-B60A-0E9D2FE0B204">
             <kie:width>60</kie:width>
-            <kie:width>262</kie:width>
+            <kie:width>316</kie:width>
             <kie:width>298</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
