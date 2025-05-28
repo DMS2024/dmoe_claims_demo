@@ -180,7 +180,7 @@
     <informationRequirement id="_83E474FA-8BD9-4CFC-A7A0-2007FB648AF2">
       <requiredInput href="#_F116B806-E598-4CA7-BA98-C7BDD09BA526" />
     </informationRequirement>
-    <decisionTable id="_CDDF1086-8990-46A1-BB50-E3ACAB6B81AE" typeRef="Any" hitPolicy="UNIQUE" label="Surgery Cost Percentile List">
+    <decisionTable id="_CDDF1086-8990-46A1-BB50-E3ACAB6B81AE" typeRef="Any" hitPolicy="FIRST" label="Surgery Cost Percentile List">
       <input id="_059DDE57-E4B9-4938-ADF0-5D2BEF29CE9A">
         <inputExpression id="_AD68EDB2-0DC4-48D2-B1FD-3F9CD3122596" typeRef="string">
           <text>Claims.medicalCenterType</text>
